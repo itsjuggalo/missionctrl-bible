@@ -580,3 +580,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 - **Updated Chapter 18**: Build & Workflow Rules — added React JSX/useEffect verification (18.3, 18.4), no-restore + no-mock-data + never-delete rules consolidated (18.6, 18.7)
 - **Removed**: Nothing — Bible v2 verbatim file inventories (chapters 3–15) preserved in PDF, summarized here in TOC. Bible v3 is the merge, not a replacement.
 - **Bible system bootstrapped**: BIBLE.md at ~/.openclaw/data/, helpers bible-log/show/pdf at ~/scripts/bible/, GitHub repo itsjuggalo/missionctrl-bible (public, README = BIBLE.md)
+
+### 2026-04-30 16:34 ET - Bible system online
+- Change: Auto-update loop tested
+- Details: Helpers + GitHub repo wired Apr 30
