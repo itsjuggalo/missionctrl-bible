@@ -584,3 +584,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-04-30 16:34 ET - Bible system online
 - Change: Auto-update loop tested
 - Details: Helpers + GitHub repo wired Apr 30
+
+### 2026-04-30 17:22 ET - Layer 2/3 enforcement added
+- Change: Memory entries 11+12 updated for bible system + auto-link gotcha; user preferences template provided
+- Details: Session bootstrap command: bible-show | head -200 ; bible-show April 28 ; bible-show Active Backlog
