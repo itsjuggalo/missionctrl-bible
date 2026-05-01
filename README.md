@@ -732,3 +732,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 15:01 ET - Boba 4-file flush wired into main May 1
 - Change: Block 3: flush_to_boba_memory call inserted into main() after log_decision and before debate hook. Manual test confirmed all 4 boba_memory files received entries. Existing boba_decisions_validated.json untouched. Next Boba cycle will write structured memory automatically.
 - Details: Test entry contains TESTPICK and TESTSKIP1/TESTSKIP2 markers — easy to grep out later if Mike wants to remove the test data. log_decision behavior unchanged.
+
+### 2026-05-01 15:18 ET - Boba mike-mindset seed + flush extension May 1
+- Change: Block 4 final: created mike-mindset file in boba_memory with Mike's actual trading posture (R1/R2 accounts, T0-T4 premium ladder, within-tier ranking, dual protocol A/B, current market posture, known edges, known anti-patterns, execution constraints, when to pass, output requirements). Extended flush_to_boba_memory to read mike-mindset and include in raw-backup-context dump (8000 char snapshot per cycle). mike-mindset is OVERWRITE mode, manually edited via nano on PuTTY. ITEM 15 of priority list COMPLETE.
+- Details: Test verified mindset content captured in raw backup with T0 MEGA FLOW and T1 HUGE FLOW markers visible. boba_decisions_validated.json untouched. boba-journal route untouched. Discord-editable interface for mike-mindset deferred to backlog (separate bible-log entry next).
