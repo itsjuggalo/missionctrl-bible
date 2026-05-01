@@ -724,3 +724,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 14:54 ET - Boba memory scaffolding May 1
 - Change: Created boba_memory directory with 4 append-only seed files (daily-log, decisions, rejected-ideas, raw-backup-context) at workspace/boba_memory. Inside Obsidian vault. No code or cron changes. Block 1 of 4-file flush protocol integration.
 - Details: Files are headers only — Block 2 adds the flush function to boba_decision_cycle, Block 3 wires it in, Block 4 adds mike-mindset overwrite file. No existing files touched. boba_decisions_validated and boba-journal route untouched.
+
+### 2026-05-01 15:00 ET - Boba memory flush function May 1
+- Change: Added flush_to_boba_memory function to boba_decision_cycle. Function defined but NOT yet called from main — Block 3 wires the call. Writes to 4 files in boba_memory dir at end of cycle, with file locks and full exception isolation. Block 2 of 4-file flush protocol.
+- Details: Function uses fcntl.flock for concurrent-safe writes, wraps everything in try/except so cycle never breaks on flush failure, dumps full raw cycle_result to raw-backup-context as belt-and-suspenders. log_decision and boba_decisions_validated.json untouched. No behavior change yet.
