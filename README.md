@@ -588,3 +588,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-04-30 17:22 ET - Layer 2/3 enforcement added
 - Change: Memory entries 11+12 updated for bible system + auto-link gotcha; user preferences template provided
 - Details: Session bootstrap command: bible-show | head -200 ; bible-show April 28 ; bible-show Active Backlog
+
+### 2026-04-30 21:18 ET - Snapshot Poster + Grading Loop Shipped
+- Change: Built and shipped 3 systems: bible v3 with auto-push, weekly grader posting Grade D to BobaTrades with 5 proposed edits, EVO conservative replay validated +$3K/week edge, account snapshot poster posting all 3 Alpaca accounts (R1/R2/JazzyHazzy R1) to #alpaca-account every 30 min with OCC decoded symbols + 7d/30d perf vs SPY benchmark.
+- Details: Snapshot at /home/ubuntu/scripts/snapshots/account_snapshot_post_py — Cron */30 * * * *. Grader at /home/ubuntu/scripts/weekly_grade/weekly_grade_py — Cron 0 20 * * 5 (Fri 4pm ET). JazzyHazzy R1 account live at PA38IUKNR237 ($10K, L3, 4x margin) but jazzy_decision_cycle.py forked-but-not-wired pending future decision. SPY 7d=+2.07%, 30d=+13.34% benchmarks. Webhook UA fix needed for Cloudflare 1010 block on raw urllib calls.
