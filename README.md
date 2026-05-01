@@ -604,3 +604,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-04-30 21:53 ET - Grader max_tokens 2000 to 4000
 - Change: Bumped weekly grader Anthropic max_tokens from 2000 to 4000 because the head-to-head prompt expansion was hitting the ceiling and producing truncated JSON (parse error at char 7087). Re-ran live, parsed clean. Cost impact ~$0.05/Friday.
 - Details: Edit at /home/ubuntu/scripts/weekly_grade/weekly_grade_py call_claude function. Boba R2 file md5 fe4881e71393bfca963310e0d1361a04 still verified unchanged. Today's 2026-05-01 grade now valid JSON with structured proposed_edits.
+
+### 2026-04-30 21:59 ET - trail_daemon Forked for JazzyHazzy
+- Change: Forked /home/ubuntu/scripts/trail_daemon.py to trail_daemon_jazzy.py (8 surgical swaps: header, account lock PA38IUKNR237, alpaca-jazzy keys, hwm state file trail_daemon_jazzy_hwm, log file trail_daemon_jazzy, journal jazzy_decisions_validated, startup msg, mismatch msg). Same +50/+100/+200% ratchet tiers, same 5-min poll. PM2 process trail-daemon-jazzy added alongside trail-daemon. R2 trail_daemon untouched and still online managing Boba positions. JazzyHazzy positions now get same ratcheting protection as Boba's.
+- Details: Both daemons online side-by-side. Account lock crashes on wrong account verified. State files separate (trail_daemon_hwm vs trail_daemon_jazzy_hwm). When JazzyHazzy opens her first swing position tomorrow it will get +50/+100/+200 trailing stops automatically.
