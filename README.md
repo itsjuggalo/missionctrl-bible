@@ -784,3 +784,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 16:41 ET - Item 18 part 2 patch - 13F full lists + chunked posts May 1
 - Change: Removed colon five slice that capped each section to 5 items. Replaced post_whale_summary with full-list renderer that builds sections then packs into pages respecting 3800 char safety limit per Discord embed. Multi-page posts get title suffix paren i slash total paren and Continued markers. One second sleep between pages to avoid rate limit. Cleared 13F state cache and re-ran all whales to re-post with complete data.
 - Details: Original bug each section had hardcoded colon five slice and printed and N more line. Now ALL items render every NEW ADDS CUTS EXITS line is shown.
+
+### 2026-05-01 16:54 ET - 13F multi-page chunking verified May 1
+- Change: Bumped TOP_N_ALWAYS_POST baseline from 10 to 100 so first-time whales show meaningful position counts. Added per-page header so Filed and Form lines reproduce on every Discord message in a multi-page split. Continuation pages still get tag continued marker for clarity. Cleared state for 6 working whales and re-ran scanner to verify chunking fires correctly on Soros 363 positions Bridgewater 1034 Renaissance 2938 etc.
+- Details: Each Discord message is now self-contained reader does not need to scroll up to see which whale or filing date the message belongs to. Title still gets paren i slash N suffix when split.
