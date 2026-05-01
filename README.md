@@ -612,3 +612,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-04-30 23:15 ET - Mission Control rebuild May 1
 - Change: Clean .next rebuild fixed Internal Server Error on /landing. Cause: BUILD_ID missing, client reference manifests for /landing and /_not-found never compiled. Wiped .next, ran npm run build, pm2 restart. /landing now HTTP 200 with StarCraft Marine vs Zealot animation. Other pages: /options 200, /signals//flow-history//tasks 307 (middleware redirects, not errors).
 - Details: Build at /home/ubuntu/mission-control-restored. Build ID tiBjlTSYZvCLeKzP2hXC7. Pre-existing warnings in build output: eslint config in next.config.ts no longer supported (cosmetic, can leave).
+
+### 2026-04-30 23:23 ET - Auto-push pipeline rebuilt
+- Change: Pipeline shipped first time was eaten by paste pipeline. Rebuilt cleanly with separate cat heredocs per file. code-push, wip-mark, wip-done, wip-list now live at scripts/bible symlinked to local bin. bible-log appends code-push call at end.
+- Details: WIP list at openclaw state code_wip wip.list. Skip files via wip-mark, release via wip-done. bible-log now triggers both repos update in one paste.
