@@ -752,3 +752,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 15:55 ET - Item 20 Block 3 - data_fetcher recovery May 1
 - Change: Block 2 had a bad regex slice that ate fetch_ohlcv, fetch_extended, save_cache, load_cache from data_fetcher leaving only the yfinance addon. Block 3 reconstructed the 4 missing CryptoCompare functions in place per Mike standing rule never to revert as first option. fetch_extended now correctly routes stocks to yfinance and crypto to CryptoCompare paginated. Manual end-to-end test confirmed all 10 symbols work.
 - Details: Lesson added to memory: when Claude breaks a file, never revert as first option, diagnose damage and reconstruct in place.
+
+### 2026-05-01 15:58 ET - Item 20 Block 4 - datetime + cache compat May 1
+- Change: Fixed two bugs from Block 3: optimizer required candles[0]['datetime'] field which my reconstructed CryptoCompare fetchers and yfinance fetcher all omitted, and load_cache crashed on legacy cache files saved as plain list. Block 4 added datetime ISO field to all 3 candle builders fetch_ohlcv fetch_extended fetch_ohlcv_yfinance. load_cache now handles both legacy list and new wrapped dict format with auto datetime backfill. Manual end-to-end test confirmed all 10 symbols complete optimization.
+- Details: BTC cache file from Apr 14 was a plain list, my Block 3 save_cache wrapped new saves with saved_at metadata. Both formats now coexist.
