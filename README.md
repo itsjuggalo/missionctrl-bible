@@ -788,3 +788,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 16:54 ET - 13F multi-page chunking verified May 1
 - Change: Bumped TOP_N_ALWAYS_POST baseline from 10 to 100 so first-time whales show meaningful position counts. Added per-page header so Filed and Form lines reproduce on every Discord message in a multi-page split. Continuation pages still get tag continued marker for clarity. Cleared state for 6 working whales and re-ran scanner to verify chunking fires correctly on Soros 363 positions Bridgewater 1034 Renaissance 2938 etc.
 - Details: Each Discord message is now self-contained reader does not need to scroll up to see which whale or filing date the message belongs to. Title still gets paren i slash N suffix when split.
+
+### 2026-05-01 16:56 ET - 13F syntax fix + chunking verified May 1
+- Change: Previous chunking patch had escaped quotes inside f-string expression which is illegal in Python. Replaced with string concatenation. Header now reproduces on every page so split messages stay self-contained. Cleared state cache and re-ran whales scanner. TOP_N_ALWAYS_POST already at 100 from prior bump.
+- Details: Self-inflicted lesson reinforces standing rule fix in place not revert. Heredoc plus f-string plus quote escaping is the trifecta to avoid - safer to use string concat or .format when generating Python source via heredoc.
