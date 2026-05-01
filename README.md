@@ -616,3 +616,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-04-30 23:23 ET - Auto-push pipeline rebuilt
 - Change: Pipeline shipped first time was eaten by paste pipeline. Rebuilt cleanly with separate cat heredocs per file. code-push, wip-mark, wip-done, wip-list now live at scripts/bible symlinked to local bin. bible-log appends code-push call at end.
 - Details: WIP list at openclaw state code_wip wip.list. Skip files via wip-mark, release via wip-done. bible-log now triggers both repos update in one paste.
+
+### 2026-04-30 23:50 ET - QQQ NVDA gain protection May 1
+- Change: Manual protective stops added to two unprotected R2 positions. QQQ 662C exp 0501 had ZERO protection. Added stop_limit at 6.40 stop 6.30 limit DAY tif. Locks minimum 17.6 percent gain on 10 contracts (1500 dollar floor). NVDA 202.50P exp 0508 had a partial 2 of 5 limit at 6.00 only. Cancelled that. Replaced with full 5 contract stop_limit at 5.20 stop 5.10 limit GTC. Locks minimum 6 percent gain on all 5 contracts. Boba decisions journal returned 0 entries past 7 days which is broken — needs investigation tomorrow.
+- Details: QQQ at entry 5.44 currently 6.70. NVDA at entry 4.90 currently 6.00. Combined unrealized 1810 dollars. EXIT path bug from memory 29 likely cause of missing brackets — Boba places initial OCO then later cancel-replace silently fails. Build profit_lock_daemon tomorrow as separate process polling every 60s for tier-aware ratcheting on flow protocol positions.
