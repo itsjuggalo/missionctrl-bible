@@ -728,3 +728,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 15:00 ET - Boba memory flush function May 1
 - Change: Added flush_to_boba_memory function to boba_decision_cycle. Function defined but NOT yet called from main — Block 3 wires the call. Writes to 4 files in boba_memory dir at end of cycle, with file locks and full exception isolation. Block 2 of 4-file flush protocol.
 - Details: Function uses fcntl.flock for concurrent-safe writes, wraps everything in try/except so cycle never breaks on flush failure, dumps full raw cycle_result to raw-backup-context as belt-and-suspenders. log_decision and boba_decisions_validated.json untouched. No behavior change yet.
+
+### 2026-05-01 15:01 ET - Boba 4-file flush wired into main May 1
+- Change: Block 3: flush_to_boba_memory call inserted into main() after log_decision and before debate hook. Manual test confirmed all 4 boba_memory files received entries. Existing boba_decisions_validated.json untouched. Next Boba cycle will write structured memory automatically.
+- Details: Test entry contains TESTPICK and TESTSKIP1/TESTSKIP2 markers — easy to grep out later if Mike wants to remove the test data. log_decision behavior unchanged.
