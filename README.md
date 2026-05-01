@@ -772,3 +772,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 16:27 ET - MC config + global-error cleanup May 1
 - Change: Removed deprecated eslint key from Next.js config (was logging warning every restart). Added global-error component to app router root - replaces missing 500.html behavior with branded error page that has retry button. Rebuilt and restarted mission-control. Verified no new eslint warnings, no 500.html ENOENT, no InvariantErrors in fresh log tail.
 - Details: Next.js 15 dropped inline eslint config in favor of separate next-lint command. The 500.html missing was app-router specific - app router uses global-error.tsx not pages/500.tsx.
+
+### 2026-05-01 16:34 ET - Item 18 - Form 4 insider scanner shipped May 1
+- Change: SEC EDGAR Form 4 scanner polling every 30 min market hours. Hits free EDGAR atom feed direct, no Quiver. Watchlist auto-merged from Boba decisions validated last 14 days plus multi-day repeaters plus 60-ticker static fallback. Tier T1 CEO/CFO buy ANY size or officer/director big buy 500k plus. Tier T2 officer/director buy 50k plus. Cluster alert when 3 plus distinct insiders buy same ticker in 7 days. Posts to fednew-scanners channel with ticker insider name role share count avg price total value and filing link. State persisted in openclaw state sec scanner. Log JSONL appended for every watchlist hit.
+- Details: Future: 13F whale scanner next block. EDGAR rate limit 10 per second, scanner uses 0.15s sleep between filings. User-Agent identifies us per SEC fair-access policy.
