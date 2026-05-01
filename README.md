@@ -768,3 +768,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 16:18 ET - Item 17 fixes - firebase heartbeat + MC rebuild May 1
 - Change: Firebase signal relay was actually healthy - no errors in 46h uptime. Added heartbeat touch on output file every 60s loop so audit can distinguish relay-alive from relay-dead instead of conflating with quiet market periods. Mission-control restart=25 was real - Next.js InvariantError on missing client reference manifests for /_not-found and /landing. Cleaned .next directory and full rebuild. Verified both processes stable post-fix.
 - Details: Lesson: file mtime alone is misleading for relay-style processes that only write on data change. Need explicit liveness signal. MC bug typical of corrupted Next.js build cache - clean rm -rf .next then npm run build resolves.
+
+### 2026-05-01 16:27 ET - MC config + global-error cleanup May 1
+- Change: Removed deprecated eslint key from Next.js config (was logging warning every restart). Added global-error component to app router root - replaces missing 500.html behavior with branded error page that has retry button. Rebuilt and restarted mission-control. Verified no new eslint warnings, no 500.html ENOENT, no InvariantErrors in fresh log tail.
+- Details: Next.js 15 dropped inline eslint config in favor of separate next-lint command. The 500.html missing was app-router specific - app router uses global-error.tsx not pages/500.tsx.
