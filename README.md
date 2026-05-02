@@ -908,3 +908,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-01 23:57 ET - Synth-control digests User-Agent fix May 2
 - Change: Discord webhooks return HTTP 403 Forbidden when POST request lacks User-Agent header. urllib request does not set one by default unlike curl or requests library. Patched scripts synth_control_digests digests_py post function to add User-Agent MissionCtrl-SynthControl 1.0 header. All 9 digests now post successfully to synth-control. Lesson - when webhook works in curl but not python urllib check User-Agent first.
 - Details: Original recon used curl -o devnull which did not actually POST any payload so the 200 was misleading. Future webhook smoke tests should use a real POST with payload.
+
+### 2026-05-01 23:58 ET - Synth-control digests rate-limit delay added May 2
+- Change: Discord webhooks throttle around 5 posts per 2 seconds. all subcommand now sleeps 1.5s between digests. Re-fired edge-decay digest that hit 429 in initial test. All 9 digests confirmed posting successfully on individual runs and on all run with delay. Cron entries fire on staggered schedule so rate-limit only matters for manual all calls.
+- Details: Verified by full all run after fix. Edge-decay state file reads strategies_checked 14 healthy 2 insufficient 8 alerts 0 - posts cleanly.
