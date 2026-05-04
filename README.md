@@ -1299,3 +1299,334 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-04 13:21 ET - All 7 stopped PM2 procs restarted May 4
 - Change: Per standing rule 10 preserve features never delete without approval - restarted all 7 previously-stopped PM2 procs not just the 2 with confirmed consumers. whale-alert-bot redeployed with correct cwd /home/ubuntu/scripts (was /home/ubuntu/mission-control-restored). boba-today-bot redeployed with correct cwd /home/ubuntu/scripts/boba-today-bot (was wrong cwd /home/ubuntu/backup-4.23.2026MCV2). Both provide real-time continuous Discord-post service distinct from the cron-batch versions whale_alert_py and daily_post_py which run on schedules. signal-receiver boba-autothread alpaca-fill-listener restarted as-is - they were stopped pending decision but earlier delete proposal was wrong - features preserved.
 - Details: Earlier triage paste suggested DELETE for whale-alert-bot and boba-today-bot based on cron supersession. That was incorrect per rule 10 - the PM2 daemons and cron jobs serve different purposes. Continuous real-time Discord posts vs scheduled batch summaries are not interchangeable. All 7 procs now online matching pre-stoppage baseline.
+
+---
+
+# v4 Reconciliation - Appended 2026-05-04 ET
+
+## Purpose of this v4 supplement
+
+Bible v3 reconciled state through Apr 30. Between May 1 and May 4 ET, ~30 new scripts shipped, PM2 inventory grew from 26 to 43 procs, crontab grew from 77 to 120+ entries, both Boba and Jazzy moved to new accounts in small-account TEST MODE, and the disciplined-decisions parallel stack was archived. This supplement captures all of that against actual filesystem evidence (verified May 4 morning ET via PuTTY recon), corrects chat-claims that didn't match the code on disk, and adds explicit Purpose blocks to each section so future readers cannot misinterpret what feeds what.
+
+---
+
+## Chapter 24 - PM2 Process Registry Delta (43 procs as of May 4 ET)
+
+### Purpose
+What changed in PM2 between v3 (26 procs) and v4 (43 procs). 17 added, including two scanner fleet expansions (option-watcher plus 7 named scanners) and the trading-stack profit-lock daemons. Also documents WRONG cwds caught and fixed during May 4 recon.
+
+### New since v3 (17 added, IDs 30-45)
+
+ID 30 trail-daemon-jazzy - Jazzy account ratcheting stop loss. cwd /home/ubuntu/scripts (FIXED 5/4 from /weekly_grade/replay)
+ID 31 profit-lock-daemon - Boba account tier-based profit locking +20/+50/+100/+200 percent milestones with 8 percent peak-trail giveback
+ID 32 profit-lock-daemon-jazzy - Same for Jazzy
+ID 33 alpaca-fill-listener - EXPERIMENTAL Apr-May, listens for Alpaca fill events. Restarted 5/4 to preserve features per rule 10
+ID 34 whale-alert-bot - REAL-TIME continuous Discord poster, fires T0+ flow alerts and triggers Boba via trigger_boba calls. NOT redundant with cron whale_alert_py which is 10-min batch summary. cwd /home/ubuntu/scripts (FIXED 5/4 from /mission-control-restored)
+ID 35 pm2-logrotate - PM2 module
+ID 36 boba-today-bot - Discord bot that responds to Boba-today queries in real time, connects to Discord Gateway. NOT redundant with cron daily_post_py which is 8:35 PM ET batch summary. cwd /home/ubuntu/scripts/boba-today-bot (FIXED 5/4 from /backup-4.23.2026MCV2)
+ID 37 option-price-watcher - Option price monitoring
+ID 38-44 scanner-overlap, scanner-gamma, scanner-earnings, scanner-pmgap, scanner-decay, scanner-prepop, scanner-congress - 7 named scanners
+ID 45 flow-greeks-relay - Polls vendor RTDB FlowGreeks plus FlowGreeks2 every 30s, forwards to final-msg-flow Discord. Replaces FCM/MacroDroid/phone path. cwd /home/ubuntu/scripts/relays (FIXED 5/4 from /tmp/fg_dex)
+
+### High-restart hotspots (need investigation)
+
+mission-control 28 restarts, trail-daemon 21, profit-lock-daemon 21, profit-lock-daemon-jazzy 17, option-signals-relay 15
+
+---
+
+## Chapter 25 - Crontab Delta (now ~120 entries, was 77)
+
+### Purpose
+Document everything cron runs as of May 4 ET so nothing is killed without knowing what it produces. Stripped 10 disciplined-decisions cron entries 5/4 ET (their target dir was archived 5/4 01:50 ET so they were failing silently).
+
+### New since v3 (selected highlights)
+
+22:00 nightly - supertrend-engine/daily_optimize - 10-symbol optimizer, posts to daily-optimize Discord 1499858887761989642
+0 0 day-2 monthly - skill_audit/skill_audit_py - scans 130 SKILL_md files
+1am nightly + hourly - blast-radius/audit_py - dependency map, output to /openclaw/data/blast_radius_report
+Every 5 min - daemon_health/daemon_health_alert_py - PM2 transition alerts
+12 / 17 / 22 weekdays - jazzyhazzy/fed-speech-monitor/fed_monitor - Fed speech sentiment
+30 / 12 / 17 / 20 / 23 weekdays - fed_monitor --deep-score - LLM-deep-scored
+4:30 PM weekdays - portfolio_drift/drift_monitor_py
+8x synth_control_digests/digests_py with 8 modes (mc-restarts, kronos, consensus, sec-whales, fleet-mem, edge-decay, blast, optimizer, self-grade)
+8:35 PM weekdays - boba_today_daily/daily_post_py - daily batch summary
+8:00 PM Fri - weekly_grade/weekly_grade_py - performance-weekly Discord
+13 entries weekdays - rule_based_decision_engine.py --quiet - DRY-RUN parallel to Boba/Jazzy
+Pre-pop scanner fires every 5 min weekdays
+Every 30 min - snapshots/account_snapshot_post_py - all 3 accounts to alpaca-account Discord
+
+### Stripped 5/4 ET (10 disciplined-decisions cron entries)
+
+trail_daemon_py, boba_decision_cycle_py both modes, jazzy_decision_cycle_py both modes, morning_status_py, circuit_breaker_py, pnl_tracker_py - target dir archived to /openclaw/_archive/disciplined-decisions.archived-may4
+
+---
+
+## Chapter 26 - Trading Architecture Delta (Boba + Jazzy)
+
+### Purpose
+Document new account IDs, small-account TEST MODE caps, and the actual guardrails enforced in code (not chat-claims). Earlier chat-log claimed BIG_SIZE constants that do NOT exist on disk - this corrects that.
+
+### Account map as of May 4 ET (verified via secret file mtimes)
+
+PA3QIBJEYMB3 - Boba (active) $1K small-account TEST MODE
+PA3CR1NZF657 - Jazzy (active) $1K small-account TEST MODE
+PA3R6MOPBWF7 - Boba (deleted 5/3)
+PA38IUKNR237 - Jazzy (deleted 5/3)
+PA3Y7UTNIQFZ - R1 (deleted pre-May)
+VA65395018 - Tradier sandbox (active)
+
+Symlinks May 4: alpaca-key-id and alpaca-secret point at alpaca-boba-*. anthropic.key symlinked to anthropic_api_key (fix 5/3 16:16 ET so Boba does not fall back to deterministic_decision)
+
+### Boba decision cycle constants (VERIFIED in code lines 83-98)
+
+MAX_PICKS_PER_CYCLE = 3
+MAX_NEW_PICKS_PER_DAY = 1 (was 3 pre-5/4)
+MAX_TOTAL_RISK_USD = 1000 (was 3000 pre-5/4)
+MAX_BUYING_POWER_PCT_PER_PICK = 0.15 (15 percent BP cap per pick)
+KRONOS_CONFLICTS_OVERRIDE_SCORE = 90
+KRONOS_UNAVAILABLE_OVERRIDE_SCORE = 85
+KRONOS_SKIP_TICKERS = SPX NDX RUT VIX XSP OEX DJX XEO DJI
+MIN_DTE_DEFAULT = 1
+FORBIDDEN_TICKERS = empty set
+MIN_FLOW_VALUE = 500_000 (T1+T2 only)
+BOBA_MODEL = claude-sonnet-4-5
+
+### validate_pick_against_guardrails actual rules (line 1332)
+
+1. FORBIDDEN_TICKERS blocklist
+2. Required fields check
+3. Per-pick BP cap: pick cost <= 15 percent of buying power
+4. Kronos CONFLICTS requires flow score >= 90 OR T0 ($10M+) override
+5. 0DTE requires catalyst keyword in reasoning
+6. Strike sanity (placeholder)
+7. No duplicate exact contract in cycle's prior picks
+
+CORRECTION: Earlier chat-log entries claimed BIG_SIZE_COST_THRESHOLD = 10000 / BIG_SIZE_REQUIRES_AGREES = True / BIG_SIZE_CONFLICTS_OVERRIDE_SCORE = 95 - these constants DO NOT EXIST on disk. The actual gating is via the 15 percent BP cap (Rule 3) plus Kronos CONFLICTS gate (Rule 4). T0 mega flow is the override, not a $10K cost threshold.
+
+### Jazzy small-account guardrail mismatch (FIXED 5/4 ~12:50 ET)
+
+jazzy_decision_cycle.py was MISSED in 5/4 01:50 ET small-account prep - had old MAX_NEW_PICKS_PER_DAY = 3 and MAX_TOTAL_RISK_USD = 3000. With $1K equity, Jazzy could have wiped account on single ENTER_NOW. Patched to match Boba.
+
+### Two-step options pattern (Apr 2026 / restored 5/3 16:14 ET)
+
+Alpaca paper rejects bracket OCO complex orders on options (error 42210000). Pattern: limit buy + 10s poll for fill + separate stop_limit sell with position_intent=sell_to_close stop=fill*0.95 limit=stop*0.90. trail_daemon ratchets via cancel-then-resubmit. No separate TP.
+
+---
+
+## Chapter 27 - Stack History May 1-4 ET (chronological)
+
+### Purpose
+Complete chronological ledger of what shipped between Bible v3 (Apr 30) and v4 (May 4 ET). Verified against bible-show tail + git log + filesystem mtimes. Source of truth for "what changed when".
+
+May 1: blast-radius/audit_py, edge_decay/edge_decay_py, weekly_grade, skill_consultant, log_retention, channel_identity, daemon_health/daemon_health_alert, daily-wrap, lib/{web_scraper,doc_converter,discord_threading}, portfolio_drift, multi-symbol SuperTrend optimizer expansion (Item 20)
+
+May 2: boba-today-bot, synth_control_digests, model_usage_digest, daemon_health/weekly_digest, lib/skill_loader, jazzy_decision_cycle.py, skill_audit (Items 41+43), congress-scanner, backtest-runner, github-scout, flow-research, outcome-extractor
+
+May 3 (heavy launch-prep): 7 scanners shipped to /scripts/scanners/, disciplined-decisions stack flurry (8 patches 15:46-16:23), pre-pop scanner activation, pre-launch fixes, final pre-launch verification, alpaca_archive + alpaca_history_writer, Round 2 FG notifications confirmed FCM-only, flow-greeks-relay shipped (PM2 id 45), v1.1 patch
+
+May 4 (overnight + Mon launch + recon fixes): discord-relay v2.1 SEND_CAP_PER_CYCLE, discord-relay cleanup, Mon launch small-account old-stack prep (01:50 ET), flow_greeks_relay v1.1.1, Daemon account-guard fix (02:04 ET), boba_decision_cycle.py final state 105KB / 2218 lines, bible_v3 last update (06:04 UTC), v4 RECON FIXES: Jazzy small-account guardrail (12:50), flow-greeks-relay cwd (12:55), Disciplined-decisions cron strip (13:00), trail-daemon-jazzy cwd (13:05), mission-control git push to backup branch (13:05), Telegram listener inventory verified (13:05), flow-monitor + firebase-signal-relay restarted (17:18), all 7 stopped PM2 procs restarted (17:21 - whale-alert-bot fired T0 alert on IWM and MU 17.26M within seconds confirming RESTART was correct call)
+
+---
+
+## Chapter 28 - Corrections to v3
+
+### Purpose
+Document where v3 was inaccurate so future readers don't trust outdated counts/IDs/claims. v3 is preserved per pattern matching v2->v3 (additive supplement, not replacement) - corrections noted here.
+
+PM2 26 procs -> 43 (1 numbering gap at 9, 11)
+System cron 77 entries -> ~120 lines after disciplined strip
+Files documented 763 -> 143K+ scoped via find. v3 used different scope
+Secret files 176 -> 204 (128 discord, 13 alpaca, 11 telegram, 4 coinbase, 2 tradier, 2 hyperliquid)
+State files 521 -> 45 in /openclaw/state/. v3 included broader scope
+R2 Boba PA3R6MOPBWF7 $503K -> DECOMMISSIONED 5/3. Real Boba is PA3QIBJEYMB3 ($1K)
+Dashboard at :3033 proxied via nginx -> TRUE for missionctrl.serveftp.com domain. IP-based fallback 132.145.205.15 points at :3000 (no service) - broken but unused
+Chapter 17 line count 1397 -> 2218 lines as of May 4 06:04 UTC
+telegram-listener reads 8 channels -> TRUE 8 Telegram + Firebase RTDB poll + WebSocket = 10 sources tracked
+
+---
+
+## Chapter 29 - APK Reverse Engineering
+
+### Purpose
+Major undocumented infrastructure. mission-control-restored holds the APK collection plus the decompiled outputs for vendor-app reverse engineering. Pipeline documented so future readers know where the scrapers come from. This is what powers Option-Signals-Scraper PM2 proc and flow-greeks-relay.
+
+### APK files in /home/ubuntu/mission-control-restored/
+
+1 Golden Crypto Signals.apk
+2 Ai Crypto Signals.apk
+4 Crypto Signals.apk
+5 Option Signals.apk
+6 Trade Signals.apk
+7 xCrypto.apk
+AInvest_5.0.9.0.apk
+Flow Greeks_2.2.1.apk
+Flow Trades - Stocks & Options_1.4.4.apk
+
+### Decompiled outputs
+
+/mission-control-restored/decompiled/flow_greeks (apktool current)
+/mission-control-restored/decompiled/flow_greeks_apktool (resources)
+/mission-control-restored/decompiled/flow_greeks_unzip (raw zip)
+/backup-4.23.2026MCV2/decompiled/* (frozen pre-4/23 snapshot)
+/openclaw/state/flow_greeks_seen.json (relay dedup state)
+
+### Pipeline
+
+APK -> apktool decompile -> extract Firebase RTDB endpoints + FCM topic names + internal API URLs -> build relay polling same RTDB -> forward to Discord webhook -> replaces phone/MacroDroid/FCM dependency
+
+---
+
+## Chapter 30 - Open Verification Gaps
+
+### Purpose
+Items that should be verified before being claimed in future bible updates. KNOWN UNKNOWNS - bible should not assert anything about them without recon.
+
+1. State files 521 count - 45 in /openclaw/state/ doesn't match v3. Different scope, need to identify v3 exact path
+2. Discord channel-to-webhook mapping - 95 webhook secret files, ~40 webhook URLs in code. channel_identity audit may have this
+3. OCO probe outcome on PA3QIBJEYMB3 - claimed 5/4 01:50 but no result recorded
+4. mission-control vs mission-control-restored relationship - mission-control has subsystems, mission-control-restored has dashboard + bots + Option-Signals-Scraper + APKs
+5. firebase-signal-relay stop pattern - restarted 5/4 morning then again 5/4 17:18 ET - if it stops AGAIN need to investigate logs
+
+---
+
+## Chapter 31 - Signal-Source Scraping History
+
+### Purpose
+Comprehensive log of every approach tried for scraping vendor signal sources. CRITICAL CLARIFICATION: the Firebase RTDB at stock-signal-72772-default-rtdb.firebaseio.com is the OPTION SIGNALS plus FLOW GREEKS vendor's project (same publisher per shared project ID). It is NOT AInvest. AInvest is a completely separate app with its own backend (stat.ainvest.com) - currently NOT scraped, APK on disk for future analysis. Earlier chat-log entries that wrote "AInvest Firebase RTDB" were inaccurate shorthand for the vendor RTDB.
+
+### Vendor Firebase RTDB
+
+Project: stock-signal-72772
+Endpoint: https://stock-signal-72772-default-rtdb.firebaseio.com
+Auth: PUBLIC RTDB reads. Anonymous signUp returns empty token (anon auth disabled). Firestore reads on this project would 401
+WebSocket fronts: s-gke-usc1-nssi4-52.firebaseio.com (Google GKE geo-routed, same DB)
+Discovered via: jadx decompile of Option Signals APK (early scraping work pre-v3) plus PCAPdroid capture confirming Flow Greeks hits same host
+
+### Top-level RTDB keys (13 known)
+
+Vivid2 - Option Signals scraper - LongTermOptions, LongTermStocks, ShortTermOptions, ShortTermStocks
+Name - Notifications source - OptionNotifications, GeneralNotifications, StockNotifications
+Name2 - Notifications mirror of Name
+FlowGreeks - Flow Greeks scraper - Alerts/today, BullBears, LiveFlowLast100, LiveFlows
+FlowGreeks2 - Flow Greeks scraper - Alerts/today
+PerfTest - Likely "performance test" - has both OptionNotifications + FlowGreeks subtrees - candidate for Magic/Lightning notifications
+Offers, poc, test - Empty per probe
+OSIndia, indTest - India variants
+
+### Option Signals - SHIPPED, working
+
+File: /mission-control-restored/Option-Signals-Scraper/scraper.py (PM2 ID 1)
+Cadence: 5-min tier hits Vivid2 paths plus FlowGreeks/Alerts/today plus FlowGreeks2/Alerts/today
+Output: flow_alerts_today.json (~70KB), flow2_alerts_today.json (~60KB), plus ts_/ss_ variants
+Routing: discord_relay.py PM2 ID 16 routes by AlertType
+Status May 4: working. Latest cycle 135 + 168 entries
+
+### Flow Greeks - PARTIAL ship
+
+Stage 1 - Realtime alert mirror SHIPPED:
+- File: /scripts/relays/flow_greeks_relay_py
+- PM2 ID 45 flow-greeks-relay (cwd fixed 5/4)
+- Polls /FlowGreeks/Alerts/today + /FlowGreeks2/Alerts/today every 30s
+- Forwards to final-msg-flow Discord (webhook 1500670455244263558, channel 1500670320145600664)
+- 8 AlertType categories
+- ~261 events/day
+
+Stage 2 - "Magic/Lightning/Multi-Winner" notifications NOT YET SHIPPED:
+"Lightning Strike", "Weekly Magic", "Multi-Winner", "Fireworks", "Unusual Pattern", "ETF Magic" notifications fired on :45 past hour. Confirmed FCM-push-only - NOT in RTDB under any path probed.
+
+### 20 approaches tried for Flow Greeks notifications
+
+1. Direct RTDB poll under /FlowGreeks paths - PARTIAL
+2. RTDB probe for /Magic /Winners /Notifications - EMPTY
+3. RTDB probe for /Name/OptionNotifications/today - HIT but wrong content (Vivid:STC format not Magic format)
+4. RTDB probe for /PerfTest - PROBABLY THE SOURCE - not yet polled
+5. RTDB probe for /Name2/OptionNotifications - HIT mirror of Name
+6. RTDB probe for /Vivid2 - Active Option Signals stream
+7. dex string extraction (jadx) - DEAD END, only Firebase SDK boilerplate
+8. apktool decompile resources - PARTIAL
+9. blutter for Flutter libapp.so - NOT YET ATTEMPTED, needs libapp.so from split APK
+10. XAPK bundle download (Fork C) - DEFERRED
+11. PCAPdroid filtered by Flow Greeks - DEAD END, FCM channel runs through Google Play Services
+12. PCAPdroid CSV grep for non-Google domains - LEAD, found firestore.googleapis.com on 60s cadence
+13. Firestore probe - NEEDS VERIFICATION
+14. Firebase In-App Messaging - DEAD END, FIAM is open-app banners only
+15. push_receiver (Francesco149/falsidge) - INFRASTRUCTURE READY, have project_id 720692415658 + sender_id + app_id + api_key
+16. mitmproxy POST iid.googleapis.com capture - NOT YET ATTEMPTED, ~20 min definitive answer
+17. Direct registration replay - NOT YET ATTEMPTED
+18. Topic brute-force subscription - NOT YET ATTEMPTED, guess flowgreeks_free / fg_free / flow_free etc
+19. MacroDroid phone-side bridge (Fork A) - IN PROGRESS, half-configured on phone
+20. Fork B - Build own performance tracker - DEFERRED, 45 min, reads flow_alerts_today + flow2_alerts_today, queries Tradier, posts on +50/+100/+200 percent
+
+### AInvest app (separate, NOT scraped)
+
+File: /mission-control-restored/AInvest_5.0.9.0.apk
+Backend: stat.ainvest.com (analytics only per PCAP, NOT signal source)
+Status: APK present for future analysis. Different publisher from stock-signal-72772 vendor.
+
+### Other APKs (catalog)
+
+2 Ai Crypto Signals - Active source via aicryptosignals.pro WebSocket
+5 Option Signals - Active source, original jadx gave Vivid2 endpoints
+Flow Greeks - Active source, Stage 1 RTDB shipped Stage 2 push WIP
+1 Golden Crypto Signals, 4 Crypto Signals, 6 Trade Signals, 7 xCrypto, AInvest, Flow Trades - Not yet probed
+
+---
+
+## Chapter 32 - Verified Source Inventory + May 4 ET Recon Fixes
+
+### Purpose
+Capture verified Telegram listener subscription list, all May 4 ET recon-driven fixes shipped, and what was intentionally NOT touched and why.
+
+### telegram-listener actual subscriptions (10 sources)
+
+Telethon API_ID 31236866, session mc_feed (Mike's @itsjuggalo user-mode)
+
+Tier 1 Structured signals:
+-1001448000337 Ai Golden Crypto (5.9% hit rate)
+-1002048136679 xCrypto Signals
+-1001853036360 Coin Sonar V2
+
+Tier 2 Whale/market data:
+-1002139755277 Ai Crypto Signals (Auto Bot) - Cornix outcomes
+-1001768716068 Binance Futures 5m Volume Pump Monitor
+-1002315467756 Whale Volume Alert
+-1001498307336 Binance Futures 5m Pump Monitor (No charts)
+-1001314221782 Whale Liquidations
+
+Non-Telegram sources tracked under same listener:
+Firebase-Vivid2 (vendor RTDB Vivid2 path) - 365 total, 303 actionable, 83% hit rate (highest of any source - drives Boba's actual picks)
+AICryptoSignals (wss://ws.aicryptosignals.pro:8766) - 10463 total, 0 actionable
+
+### May 4 ET recon fixes shipped
+
+12:50 - Jazzy small-account guardrail (3->1 picks, $3K->$1K cap)
+12:55 - flow-greeks-relay cwd /tmp/fg_dex -> /scripts/relays
+13:00 - Disciplined-decisions cron strip (10 entries removed)
+13:05 - trail-daemon-jazzy cwd /scripts/weekly_grade/replay -> /scripts
+13:05 - mission-control pushed to backup branch on 4.23.2026MissionCtrlV2
+13:05 - Telegram listener inventory verified
+17:18 - flow-monitor + firebase-signal-relay restarted
+17:21 - All 7 stopped PM2 procs restarted (whale-alert-bot fired T0 alert on IWM and MU 17.26M within seconds confirming RESTART was correct call not DELETE per rule 10)
+
+### Items intentionally NOT modified
+
+- nginx :3000 fallback for IP access - broken but unused, domain works
+- PM2 high-restart hotspots - separate task to investigate root cause
+- OCO probe outcome on PA3QIBJEYMB3 - still pending verification
+- /home/ubuntu/backup-4.23.2026MCV2 (1.7G frozen 4/23 snapshot) - candidate for cleanup but contains decompiled APK outputs
+
+### Open follow-ups
+
+1. Find why firebase-signal-relay keeps stopping (restarted twice 5/4 ET)
+2. Investigate the 5 high-restart PM2 procs
+3. Verify OCO probe result on PA3QIBJEYMB3
+4. Decide on Fork A (MacroDroid) vs Fork B (own performance tracker) for Flow Greeks Magic/Lightning notifications
+5. Add validate_pick_against_guardrails to jazzy_decision_cycle.py (currently no validator at all)
+6. Find the AInvest mis-reference in Discord (chat noted exists, fix after bible update lands)
+
+End v4 reconciliation.
+
+
+### 2026-05-04 13:38 ET - Bible v4 supplement appended to live bible_v3 May 4 ET
+- Change: Appended 9 new chapters (24-32) plus header to /home/ubuntu/.openclaw/data/bible_v3 - PM2 delta inventory, crontab delta, trading architecture corrections, May 1-4 stack history, v3 corrections, APK reverse engineering, open verification gaps, signal-source scraping history with 20 Flow Greeks notification approaches, verified source inventory plus recon fixes. Each chapter has explicit Purpose header explaining what it documents and why - prevents misinterpretation like the AInvest-vs-vendor-Firebase confusion that happened earlier this session. Backup of pre-append bible at /home/ubuntu/.openclaw/_archive/bible_v3_pre_v4_supplement_<timestamp>. PDF rendered via bible-pdf. Mirror pushed to itsjuggalo/missionctrl-bible.
+- Details: Live bible was 1269 lines - now ~1700 after v4 append. v4 content built from filesystem evidence May 4 morning ET via two PuTTY recon dumps - not chat-claim-based. Corrections include: BIG_SIZE_COST_THRESHOLD constants chat-claimed but missing on disk - real gating is 15 percent BP cap plus Kronos CONFLICTS Rule 4. AInvest is separate from stock-signal-72772 vendor RTDB. mission-control git was local-only auto-backup pushed to backup branch this session. Disciplined-decisions stack archived 5/4 01:50 ET, 10 cron entries stripped that pointed at archived dir.
