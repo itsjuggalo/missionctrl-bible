@@ -1253,3 +1253,6 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-03 21:45 ET - flow-greeks-relay
 - Change: v1.1 patch
 - Details: Removed NotifyAlert==1 filter after May 3 screenshot validation showed TSLA Weekly Magic and QQQ ETF alerts have NotifyAlert=0 but still fire on phone. NotifyAlert is real-time vs digest flag, NOT a push trigger. Now forwards all alerts, shows NotifyAlert in footer for filtering. Volume revised to ~261/day from ~161/day. Reseeded state with all current alerts to avoid dump on restart.
+
+### 2026-05-04 00:48 ET - discord-relay-v2-1-live
+- Change: Targeted SEND_CAP_PER_CYCLE patches applied to 5 high-risk relay functions (ts_picks, ts_closed, ts_mgmt, ss_picks, ss_mgmt) - drains backlog 5 messages per bucket per cycle instead of trying to flush all unsent at once. Fixes May 3 ss_mgmt 429 cascade root cause. Earlier global regex approach hung on 83KB file; targeted str_replace approach completed clean.
