@@ -1245,3 +1245,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 
 ### 2026-05-03 19:01 ET - Round 2 FG notifications: confirmed Lightning Strike / Weekly Magic / Multi-Winner / Fireworks / Unusual Pattern alerts are FCM-push-only — not in Firebase RTDB. Verified all candidate paths empty (Name/Name2/PerfTest/Offers/poc/test). MacroDroid phone-side bridge in progress — webhook channel + URL pending, HTTP Request action partially configured. TODO: finish MacroDroid setup OR build own performance tracker (Fork B) using flow_alerts_today + Tradier sandbox to compute gain-since-alert and post to flow-winners channel on +50/+100/+200 thresholds.
 - Change: pending
+
+### 2026-05-03 21:31 ET - flow-greeks-relay
+- Change: shipped
+- Details: Polls FlowGreeks/Alerts + FlowGreeks2/Alerts RTDB every 30s, forwards NotifyAlert==1 to final-msg-flow Discord. Replaces FCM/phone path entirely. PM2 id 45. 8 AlertType categories: unusual_high_flow, repeat_flow, high_flow, weekly_flow + _etf. Patched with custom User-Agent header on Discord POST to bypass Discord's urllib block. State seeded with 248 of today's alerts as already-seen.
