@@ -1256,3 +1256,6 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 
 ### 2026-05-04 00:48 ET - discord-relay-v2-1-live
 - Change: Targeted SEND_CAP_PER_CYCLE patches applied to 5 high-risk relay functions (ts_picks, ts_closed, ts_mgmt, ss_picks, ss_mgmt) - drains backlog 5 messages per bucket per cycle instead of trying to flush all unsent at once. Fixes May 3 ss_mgmt 429 cascade root cause. Earlier global regex approach hung on 83KB file; targeted str_replace approach completed clean.
+
+### 2026-05-04 00:54 ET - discord-relay-cleanup
+- Change: Reverted unused backlog guards from earlier session (bootstrap_seen helper + SEND_CAP_PER_CYCLE + 5 orphan markers). Discovery: each relay function already had _max_per_cycle = 200 cap from a prior fix - my additions were dead code. Also fixed git noise: data/ logs/ sent_ids now in .gitignore so commits stop including 800+ lines of scraper data churn.
