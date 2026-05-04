@@ -1249,3 +1249,7 @@ Append-only log of bible updates. Format: `### YYYY-MM-DD HH:MM ET — Title`
 ### 2026-05-03 21:31 ET - flow-greeks-relay
 - Change: shipped
 - Details: Polls FlowGreeks/Alerts + FlowGreeks2/Alerts RTDB every 30s, forwards NotifyAlert==1 to final-msg-flow Discord. Replaces FCM/phone path entirely. PM2 id 45. 8 AlertType categories: unusual_high_flow, repeat_flow, high_flow, weekly_flow + _etf. Patched with custom User-Agent header on Discord POST to bypass Discord's urllib block. State seeded with 248 of today's alerts as already-seen.
+
+### 2026-05-03 21:45 ET - flow-greeks-relay
+- Change: v1.1 patch
+- Details: Removed NotifyAlert==1 filter after May 3 screenshot validation showed TSLA Weekly Magic and QQQ ETF alerts have NotifyAlert=0 but still fire on phone. NotifyAlert is real-time vs digest flag, NOT a push trigger. Now forwards all alerts, shows NotifyAlert in footer for filtering. Volume revised to ~261/day from ~161/day. Reseeded state with all current alerts to avoid dump on restart.
