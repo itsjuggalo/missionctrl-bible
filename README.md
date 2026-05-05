@@ -1693,3 +1693,7 @@ End v4 reconciliation.
 
 ### 2026-05-05 18:50 ET - flow-watcher readable greeks
 - Change: rebuilt watcher with plain-English Greeks plus thesis line plus how-to-play playbook, fixed readArr non-iterable bug with defensive shape detection
+
+### 2026-05-05 19:32 ET - flow-watcher
+- Change: stable
+- Details: split paste killed restart loop, BetaBot online emitting tier-classified embeds with plain-English greeks and how-to-play playbook
