@@ -1769,3 +1769,7 @@ End v4 reconciliation.
 ### 2026-05-06 13:47 ET - flow-pinger
 - Change: ticker-heat trigger
 - Details: third trigger added: ANY ticker with 5+ T1+ contracts today AND 20M+ combined premium AND 70% same direction = TICKER_HEAT_CALLS or TICKER_HEAT_PUTS, fires pinger on cheapest contract in dominant direction, 30 min ticker-level cooldown, gold color in Discord, would have caught AMD today which had 12 calls 4 puts 30M combined
+
+### 2026-05-06 16:24 ET - flow-pinger
+- Change: subprocess detach
+- Details: trigger_agent now uses start_new_session=True so single-pick subprocesses survive pinger restarts, was losing Boba/Jazzy mid-execution every time we patched pinger today, today 281 successful LLM calls killed before reaching Alpaca order placement
