@@ -1733,3 +1733,7 @@ End v4 reconciliation.
 ### 2026-05-06 00:30 ET - profit-lock
 - Change: poll interval 20s
 - Details: lowered POLL_INTERVAL_SEC from 60 to 20 in both daemons for tighter trail tracking on fast-moving contracts (weekly options can move 5-10pct in 60s)
+
+### 2026-05-06 01:06 ET - alpaca
+- Change: round 1 swap
+- Details: boba and jazzy now on fresh round-1 paper accounts at 2K each (Boba PKAD..., Jazzy PKX7...), trail-daemon profit-lock-daemon both variants and alpaca-fill-listener restarted with update-env, daily picks counters reset, signal pipeline intact
