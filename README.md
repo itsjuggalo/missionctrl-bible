@@ -1773,3 +1773,6 @@ End v4 reconciliation.
 ### 2026-05-06 16:24 ET - flow-pinger
 - Change: subprocess detach
 - Details: trigger_agent now uses start_new_session=True so single-pick subprocesses survive pinger restarts, was losing Boba/Jazzy mid-execution every time we patched pinger today, today 281 successful LLM calls killed before reaching Alpaca order placement
+
+### 2026-05-06 18:51 ET - scaffold linear-bridge service
+- Change: Express bridge on 127.0.0.1:4717 under PM2 with /issue /comment /health endpoints, project-map covers 47 PM2 procs, Discord webhooks wired, smoke-test issue filed end-to-end
