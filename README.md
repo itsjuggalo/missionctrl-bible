@@ -1765,3 +1765,7 @@ End v4 reconciliation.
 ### 2026-05-06 13:41 ET - contract-tracker
 - Change: shipped
 - Details: new PM2 proc tracks all flow-pinger-triggered OCCs through expiration, polls Tradier every 60s, posts DIP/RUNNING/DEAD alerts to #beta-options via BetaBot, DTE cap 60 days, fires DIP at minus 10% on new low, RUNNING at plus 20% new HOD, DEAD at minus 50% or DTE under 1, alerts deduped per OCC per type
+
+### 2026-05-06 13:47 ET - flow-pinger
+- Change: ticker-heat trigger
+- Details: third trigger added: ANY ticker with 5+ T1+ contracts today AND 20M+ combined premium AND 70% same direction = TICKER_HEAT_CALLS or TICKER_HEAT_PUTS, fires pinger on cheapest contract in dominant direction, 30 min ticker-level cooldown, gold color in Discord, would have caught AMD today which had 12 calls 4 puts 30M combined
