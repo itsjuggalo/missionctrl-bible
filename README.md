@@ -1717,3 +1717,7 @@ End v4 reconciliation.
 ### 2026-05-05 23:38 ET - budget
 - Change: removed cap-based gating
 - Details: daily picks counter still tracks for stats but no longer gates - prompt + log show actual BP plus open positions plus realized PnL today plus picks today instead of meaningless 999 picks remaining cap 999
+
+### 2026-05-05 23:56 ET - tiers
+- Change: added PLATINUM + DIAMOND
+- Details: two new top tiers above T0: PLATINUM 20M+ (absolute max conviction, 2 contracts always allowed), DIAMOND 15M+ (very high conviction, 2 contracts when sweep+ASK), AGGRESSIVE FIRST-LOOK threshold raised 10M to 20M PLATINUM, T0/T1/T2/T3/T4 unchanged below
