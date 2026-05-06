@@ -1779,3 +1779,8 @@ End v4 reconciliation.
 
 ### 2026-05-06 18:59 ET - scaffold linear-pm2-watcher
 - Change: PM2 event-bus subscriber filing crashes, exceptions, restart loops, and fatal log lines to linear-bridge with 30-min dedupe cooldown per process+key, read-only never restarts/kills
+
+### 2026-05-06 19:03 ET - extend bible-log with --issue flag
+- Change: Added optional --issue MIS-N flag that posts a comment to Linear via linear-bridge after bible append. Existing usage unchanged.
+- Details: Backup of original at /home/ubuntu/.local/bin/bible-log.bak.1778108601
+- Linear: MIS-10
