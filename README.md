@@ -1725,3 +1725,7 @@ End v4 reconciliation.
 ### 2026-05-05 23:57 ET - tiers
 - Change: Jazzy aggressive sync
 - Details: Jazzy AGGRESSIVE FIRST-LOOK threshold also bumped to 20M PLATINUM matching Boba
+
+### 2026-05-06 00:25 ET - profit-lock
+- Change: trail rebuild
+- Details: GIVEBACK_PCT changed from 8pp entry-relative to 7 percent of current peak price, added FREE_TRADE_PEAK_PCT 10 with FREE_TRADE_LOCK_PCT 2 (locks small profit once peak hits +10), kept TRAIL_START_PEAK_PCT 20 for full peak-percentage trail kick-in, label string updated, both daemons restarted clean
