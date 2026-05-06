@@ -1721,3 +1721,7 @@ End v4 reconciliation.
 ### 2026-05-05 23:56 ET - tiers
 - Change: added PLATINUM + DIAMOND
 - Details: two new top tiers above T0: PLATINUM 20M+ (absolute max conviction, 2 contracts always allowed), DIAMOND 15M+ (very high conviction, 2 contracts when sweep+ASK), AGGRESSIVE FIRST-LOOK threshold raised 10M to 20M PLATINUM, T0/T1/T2/T3/T4 unchanged below
+
+### 2026-05-05 23:57 ET - tiers
+- Change: Jazzy aggressive sync
+- Details: Jazzy AGGRESSIVE FIRST-LOOK threshold also bumped to 20M PLATINUM matching Boba
