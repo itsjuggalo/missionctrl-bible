@@ -1784,3 +1784,7 @@ End v4 reconciliation.
 - Change: Added optional --issue MIS-N flag that posts a comment to Linear via linear-bridge after bible append. Existing usage unchanged.
 - Details: Backup of original at /home/ubuntu/.local/bin/bible-log.bak.1778108601
 - Linear: MIS-10
+
+### 2026-05-06 19:40 ET - wire Claude Code on openclaw to Linear
+- Change: Added Linear MCP to Claude Code, wrote /home/ubuntu/CLAUDE memory file with standing rules + bridge endpoints + project map, dropped file-issue and comment-issue helper wrappers in local bin
+- Linear: MIS-11
