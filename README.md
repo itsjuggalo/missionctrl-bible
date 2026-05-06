@@ -1713,3 +1713,7 @@ End v4 reconciliation.
 ### 2026-05-05 23:07 ET - spec-final
 - Change: morning ready
 - Details: unified SL -15 across all tiers, no fixed TP (profit-lock trails +20/+50/+100/+200 with 8pp giveback), 2 contracts max on full conviction T0/T1+sweep+ASK+repeater, AGGRESSIVE FIRST-LOOK raised 1M to 10M T0 sweep first 30min, Kronos non-blocking (cache only no wait), UNAVAILABLE_OVERRIDE 85 to 75
+
+### 2026-05-05 23:38 ET - budget
+- Change: removed cap-based gating
+- Details: daily picks counter still tracks for stats but no longer gates - prompt + log show actual BP plus open positions plus realized PnL today plus picks today instead of meaningless 999 picks remaining cap 999
