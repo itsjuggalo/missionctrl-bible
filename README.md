@@ -1705,3 +1705,7 @@ End v4 reconciliation.
 ### 2026-05-05 21:24 ET - boba
 - Change: timezone fix
 - Details: get_todays_whale_signals now uses ET like Jazzy, fixes silent-drop after midnight UTC
+
+### 2026-05-05 21:32 ET - kronos
+- Change: speed fixes shipped
+- Details: wait_for_kronos timeout 240/120 to 90s in boba/jazzy, added 15min cache TTL to kronos_on_demand main so repeat ticker calls return instantly via mtime touch, agents skip-on-fail to UNAVAILABLE_OVERRIDE path faster
