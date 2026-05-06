@@ -1737,3 +1737,7 @@ End v4 reconciliation.
 ### 2026-05-06 01:06 ET - alpaca
 - Change: round 1 swap
 - Details: boba and jazzy now on fresh round-1 paper accounts at 2K each (Boba PKAD..., Jazzy PKX7...), trail-daemon profit-lock-daemon both variants and alpaca-fill-listener restarted with update-env, daily picks counters reset, signal pipeline intact
+
+### 2026-05-06 01:10 ET - trail-daemons
+- Change: account hardcode fix
+- Details: trail_daemon and trail_daemon_jazzy had old PA3QIBJEYMB3 and PA3CR1NZF657 hardcoded in fatal_account_mismatch checks - updated to new round-1 accounts PA3OVUKWYHVC (Boba) and PA3AZU6NZNLZ (Jazzy), all 5 credential-caching daemons restarted clean
