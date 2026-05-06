@@ -1697,3 +1697,7 @@ End v4 reconciliation.
 ### 2026-05-05 19:32 ET - flow-watcher
 - Change: stable
 - Details: split paste killed restart loop, BetaBot online emitting tier-classified embeds with plain-English greeks and how-to-play playbook
+
+### 2026-05-05 21:21 ET - jazzy
+- Change: fixes shipped
+- Details: OpenAI response shape (was Anthropic), ET timezone in get_todays_whale_signals (was UTC silently dropped after-midnight signals), pick cap lifted 3 to 999 for jazzy and boba, daily counter files reset, BP becomes only gate
