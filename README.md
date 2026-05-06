@@ -1757,3 +1757,7 @@ End v4 reconciliation.
 ### 2026-05-06 01:51 ET - flow-pinger
 - Change: shipped
 - Details: new PM2 process flow-pinger watches best-options for DIAMOND-plus 15M+ premium alerts, 5min cooldown per OCC, checks BP via Alpaca and triggers boba_decision_cycle.py --single-pick AND jazzy_decision_cycle.py --single-pick on qualifying agents, posts every alert to #agent-debate webhook even if no agents qualify so Mike still sees it
+
+### 2026-05-06 02:11 ET - mission
+- Change: rewrite + pinger 10M
+- Details: rewrote both agent Mission and intro statements: now reference autonomous 24/7 trading team mandate, full new tier ladder PLATINUM through T4, LADDER WALK rule explicit, cycles must act on conviction or wait, do not pick weak. Lowered flow-pinger threshold from 15M DIAMOND to 10M T0 for tighter real-time coverage. Crypto grid-bot queued for separate build.
