@@ -1701,3 +1701,7 @@ End v4 reconciliation.
 ### 2026-05-05 21:21 ET - jazzy
 - Change: fixes shipped
 - Details: OpenAI response shape (was Anthropic), ET timezone in get_todays_whale_signals (was UTC silently dropped after-midnight signals), pick cap lifted 3 to 999 for jazzy and boba, daily counter files reset, BP becomes only gate
+
+### 2026-05-05 21:24 ET - boba
+- Change: timezone fix
+- Details: get_todays_whale_signals now uses ET like Jazzy, fixes silent-drop after midnight UTC
