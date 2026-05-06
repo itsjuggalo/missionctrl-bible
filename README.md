@@ -1761,3 +1761,7 @@ End v4 reconciliation.
 ### 2026-05-06 02:11 ET - mission
 - Change: rewrite + pinger 10M
 - Details: rewrote both agent Mission and intro statements: now reference autonomous 24/7 trading team mandate, full new tier ladder PLATINUM through T4, LADDER WALK rule explicit, cycles must act on conviction or wait, do not pick weak. Lowered flow-pinger threshold from 15M DIAMOND to 10M T0 for tighter real-time coverage. Crypto grid-bot queued for separate build.
+
+### 2026-05-06 13:41 ET - contract-tracker
+- Change: shipped
+- Details: new PM2 proc tracks all flow-pinger-triggered OCCs through expiration, polls Tradier every 60s, posts DIP/RUNNING/DEAD alerts to #beta-options via BetaBot, DTE cap 60 days, fires DIP at minus 10% on new low, RUNNING at plus 20% new HOD, DEAD at minus 50% or DTE under 1, alerts deduped per OCC per type
