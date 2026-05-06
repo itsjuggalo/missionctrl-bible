@@ -1753,3 +1753,7 @@ End v4 reconciliation.
 ### 2026-05-06 01:47 ET - single-pick
 - Change: added
 - Details: both agents accept --single-pick=OCC flag for event-driven single-contract evaluation, bypasses fresh+dedupe filter, looks up target from best-options first then sidecar fallback, used by upcoming flow-pinger PM2 process
+
+### 2026-05-06 01:51 ET - flow-pinger
+- Change: shipped
+- Details: new PM2 process flow-pinger watches best-options for DIAMOND-plus 15M+ premium alerts, 5min cooldown per OCC, checks BP via Alpaca and triggers boba_decision_cycle.py --single-pick AND jazzy_decision_cycle.py --single-pick on qualifying agents, posts every alert to #agent-debate webhook even if no agents qualify so Mike still sees it
