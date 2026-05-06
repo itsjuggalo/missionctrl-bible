@@ -1741,3 +1741,7 @@ End v4 reconciliation.
 ### 2026-05-06 01:10 ET - trail-daemons
 - Change: account hardcode fix
 - Details: trail_daemon and trail_daemon_jazzy had old PA3QIBJEYMB3 and PA3CR1NZF657 hardcoded in fatal_account_mismatch checks - updated to new round-1 accounts PA3OVUKWYHVC (Boba) and PA3AZU6NZNLZ (Jazzy), all 5 credential-caching daemons restarted clean
+
+### 2026-05-06 01:12 ET - profit-lock
+- Change: account hardcode fix
+- Details: profit_lock_daemon and profit_lock_daemon_jazzy updated to new round-1 accounts (PA3OVUKWYHVC and PA3AZU6NZNLZ), restart counters reset on all 4 daemons after the swap
