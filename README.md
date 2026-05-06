@@ -1749,3 +1749,7 @@ End v4 reconciliation.
 ### 2026-05-06 01:44 ET - prompts
 - Change: ladder walk + aggregate tier
 - Details: added LADDER WALK rule (evaluate tiers descending order PLATINUM to T4 no skipping) + AGGREGATE TIER rule (contract with 10+ alerts and 5M+ combined premium and 5to1 sweep:block ratio = ACCUMULATION FLOW treated as DIAMOND equivalent), both agents updated
+
+### 2026-05-06 01:47 ET - single-pick
+- Change: added
+- Details: both agents accept --single-pick=OCC flag for event-driven single-contract evaluation, bypasses fresh+dedupe filter, looks up target from best-options first then sidecar fallback, used by upcoming flow-pinger PM2 process
