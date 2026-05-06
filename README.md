@@ -1709,3 +1709,7 @@ End v4 reconciliation.
 ### 2026-05-05 21:32 ET - kronos
 - Change: speed fixes shipped
 - Details: wait_for_kronos timeout 240/120 to 90s in boba/jazzy, added 15min cache TTL to kronos_on_demand main so repeat ticker calls return instantly via mtime touch, agents skip-on-fail to UNAVAILABLE_OVERRIDE path faster
+
+### 2026-05-05 23:07 ET - spec-final
+- Change: morning ready
+- Details: unified SL -15 across all tiers, no fixed TP (profit-lock trails +20/+50/+100/+200 with 8pp giveback), 2 contracts max on full conviction T0/T1+sweep+ASK+repeater, AGGRESSIVE FIRST-LOOK raised 1M to 10M T0 sweep first 30min, Kronos non-blocking (cache only no wait), UNAVAILABLE_OVERRIDE 85 to 75
