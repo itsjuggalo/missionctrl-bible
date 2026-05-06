@@ -1776,3 +1776,6 @@ End v4 reconciliation.
 
 ### 2026-05-06 18:51 ET - scaffold linear-bridge service
 - Change: Express bridge on 127.0.0.1:4717 under PM2 with /issue /comment /health endpoints, project-map covers 47 PM2 procs, Discord webhooks wired, smoke-test issue filed end-to-end
+
+### 2026-05-06 18:59 ET - scaffold linear-pm2-watcher
+- Change: PM2 event-bus subscriber filing crashes, exceptions, restart loops, and fatal log lines to linear-bridge with 30-min dedupe cooldown per process+key, read-only never restarts/kills
