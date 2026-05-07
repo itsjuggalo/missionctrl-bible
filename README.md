@@ -1837,3 +1837,6 @@ End v4 reconciliation.
 
 ### 2026-05-07 19:27 ET - optionswatcher dynamic import corrected
 - Change: removed use client; server component now does dynamic ssr:false
+
+### 2026-05-07 19:43 ET - optionswatcher client wrapper
+- Change: next strict requires ssr:false in client component; added wrapper
