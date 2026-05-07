@@ -1816,3 +1816,6 @@ End v4 reconciliation.
 ### 2026-05-07 00:13 ET - pm2-cleanup
 - Change: scanner-prepop + signal-receiver fixes
 - Details: scanner-prepop was a one-shot script being auto-restarted by PM2 (56k restarts) - removed from PM2 added to cron every 15min during market hours, signal-receiver was crash-looping 131k times due to typing_extensions Sentinel import error from pydantic version mismatch - upgraded typing_extensions, restart counters reset on high-spinner bots
+
+### 2026-05-07 17:31 ET - sentry replay + screenshot wired
+- Change: added replayIntegration + feedbackIntegration with screenshots to instrumentation-client
