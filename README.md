@@ -1825,3 +1825,6 @@ End v4 reconciliation.
 
 ### 2026-05-07 18:03 ET - sentry wizard reinstall complete
 - Change: tunnel route to bypass adblockers, tracing on, replay+screenshot wired, MCP added
+
+### 2026-05-07 18:50 ET - removed sentry example route
+- Change: wizard scaffold deleted; loop will stop creating MIS tickets for it
