@@ -1819,3 +1819,6 @@ End v4 reconciliation.
 
 ### 2026-05-07 17:31 ET - sentry replay + screenshot wired
 - Change: added replayIntegration + feedbackIntegration with screenshots to instrumentation-client
+
+### 2026-05-07 17:51 ET - sentry DSN repointed + bak files untracked
+- Change: fixed push race; DSN now points to javascript-nextjs (4511350671802368)
