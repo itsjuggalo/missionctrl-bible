@@ -1799,3 +1799,6 @@ End v4 reconciliation.
 
 ### 2026-05-06 22:15 ET - harden code-push against secret leaks
 - Change: Added SAFE_EXCLUDES rsync patterns blocking *_token*, *_key*, *_secret*, *.env, *.pem, *api_key*, creds*. Updated /home/ubuntu/scripts/.gitignore with same patterns. Triggered after Discord auto-reset of watchlist-editor-bot token from GitHub leak. Backup at /home/ubuntu/scripts/bible/code-push.bak.1778120120
+
+### 2026-05-06 22:49 ET - scaffold massive-discord-relay
+- Change: Node relay calling Massive free-tier endpoints, posting to massive-notifs Discord webhook. Cron: 9:30am open status, noon midday, 4:30pm EOD top10 gainers+losers, Fri 5pm upcoming holidays. Env at /home/ubuntu/massive-discord-relay/env needs MASSIVE_API_KEY.
