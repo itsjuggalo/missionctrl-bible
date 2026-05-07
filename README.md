@@ -1805,3 +1805,6 @@ End v4 reconciliation.
 
 ### 2026-05-06 23:00 ET - fix massive-relay eod 403 fallback
 - Change: modeEodMovers now catches 403/NOT_AUTHORIZED and posts a tier-upgrade message instead of crashing. Other modes unaffected.
+
+### 2026-05-06 23:02 ET - fix massive-relay eod fallback v2
+- Change: Replaced modeEodMovers using brace-counting string slice (no regex), avoids prior python regex template error from emoji escapes. Eod now graceful-fails on 403.
