@@ -1808,3 +1808,7 @@ End v4 reconciliation.
 
 ### 2026-05-06 23:02 ET - fix massive-relay eod fallback v2
 - Change: Replaced modeEodMovers using brace-counting string slice (no regex), avoids prior python regex template error from emoji escapes. Eod now graceful-fails on 403.
+
+### 2026-05-06 23:56 ET - flow-pinger
+- Change: skip already-held
+- Details: added agent_holds_occ check before pinging - if agent already has the OCC in positions skip the ping to avoid wasted LLM evaluation, last cost-control gap closed
