@@ -1834,3 +1834,6 @@ End v4 reconciliation.
 
 ### 2026-05-07 19:15 ET - optionswatcher SSR disabled
 - Change: page is client-only; ssr was throwing during prerender; switched to dynamic import
+
+### 2026-05-07 19:27 ET - optionswatcher dynamic import corrected
+- Change: removed use client; server component now does dynamic ssr:false
