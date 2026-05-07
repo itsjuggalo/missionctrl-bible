@@ -1831,3 +1831,6 @@ End v4 reconciliation.
 
 ### 2026-05-07 18:56 ET - options-chain reads TRADIER_SANDBOX_KEY env first
 - Change: fixes optionswatcher 500 on vercel; needs env var added to project
+
+### 2026-05-07 19:15 ET - optionswatcher SSR disabled
+- Change: page is client-only; ssr was throwing during prerender; switched to dynamic import
