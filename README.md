@@ -1822,3 +1822,6 @@ End v4 reconciliation.
 
 ### 2026-05-07 17:51 ET - sentry DSN repointed + bak files untracked
 - Change: fixed push race; DSN now points to javascript-nextjs (4511350671802368)
+
+### 2026-05-07 18:03 ET - sentry wizard reinstall complete
+- Change: tunnel route to bypass adblockers, tracing on, replay+screenshot wired, MCP added
