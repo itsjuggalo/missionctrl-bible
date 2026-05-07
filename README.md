@@ -1812,3 +1812,7 @@ End v4 reconciliation.
 ### 2026-05-06 23:56 ET - flow-pinger
 - Change: skip already-held
 - Details: added agent_holds_occ check before pinging - if agent already has the OCC in positions skip the ping to avoid wasted LLM evaluation, last cost-control gap closed
+
+### 2026-05-07 00:13 ET - pm2-cleanup
+- Change: scanner-prepop + signal-receiver fixes
+- Details: scanner-prepop was a one-shot script being auto-restarted by PM2 (56k restarts) - removed from PM2 added to cron every 15min during market hours, signal-receiver was crash-looping 131k times due to typing_extensions Sentinel import error from pydantic version mismatch - upgraded typing_extensions, restart counters reset on high-spinner bots
