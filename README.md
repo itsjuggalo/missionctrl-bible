@@ -1796,3 +1796,6 @@ End v4 reconciliation.
 - Change: PM2 autorestart=false + cron_restart "*/5 13-20 * * 1-5"; removed duplicate */5 13-20 * * 1-5 system cron line
 - Details: before: 56288 restarts, autorestart=true, cron_restart=null. after: autorestart=false, cron_restart set, status=stopped between fires. system cron deduped — PM2 owns the schedule end-to-end. snapshot: /tmp/crontab.before-mis13.txt. one-shot script unchanged at /home/ubuntu/scripts/scanners/pre_pop_py.
 - Linear: MIS-13
+
+### 2026-05-06 22:15 ET - harden code-push against secret leaks
+- Change: Added SAFE_EXCLUDES rsync patterns blocking *_token*, *_key*, *_secret*, *.env, *.pem, *api_key*, creds*. Updated /home/ubuntu/scripts/.gitignore with same patterns. Triggered after Discord auto-reset of watchlist-editor-bot token from GitHub leak. Backup at /home/ubuntu/scripts/bible/code-push.bak.1778120120
