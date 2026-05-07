@@ -1791,3 +1791,8 @@ End v4 reconciliation.
 
 ### 2026-05-06 20:31 ET - generate Linear inventory dump
 - Change: Created /home/ubuntu/scripts/_linear_inventory.txt for component-by-component Linear provisioning
+
+### 2026-05-06 21:30 ET - MIS-13 scanner-prepop loop fixed
+- Change: PM2 autorestart=false + cron_restart "*/5 13-20 * * 1-5"; removed duplicate */5 13-20 * * 1-5 system cron line
+- Details: before: 56288 restarts, autorestart=true, cron_restart=null. after: autorestart=false, cron_restart set, status=stopped between fires. system cron deduped — PM2 owns the schedule end-to-end. snapshot: /tmp/crontab.before-mis13.txt. one-shot script unchanged at /home/ubuntu/scripts/scanners/pre_pop_py.
+- Linear: MIS-13
