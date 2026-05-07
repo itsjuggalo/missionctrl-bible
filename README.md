@@ -1788,3 +1788,6 @@ End v4 reconciliation.
 ### 2026-05-06 19:40 ET - wire Claude Code on openclaw to Linear
 - Change: Added Linear MCP to Claude Code, wrote /home/ubuntu/CLAUDE memory file with standing rules + bridge endpoints + project map, dropped file-issue and comment-issue helper wrappers in local bin
 - Linear: MIS-11
+
+### 2026-05-06 20:31 ET - generate Linear inventory dump
+- Change: Created /home/ubuntu/scripts/_linear_inventory.txt for component-by-component Linear provisioning
