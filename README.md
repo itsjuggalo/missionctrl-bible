@@ -1828,3 +1828,6 @@ End v4 reconciliation.
 
 ### 2026-05-07 18:50 ET - removed sentry example route
 - Change: wizard scaffold deleted; loop will stop creating MIS tickets for it
+
+### 2026-05-07 18:56 ET - options-chain reads TRADIER_SANDBOX_KEY env first
+- Change: fixes optionswatcher 500 on vercel; needs env var added to project
