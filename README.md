@@ -1802,3 +1802,6 @@ End v4 reconciliation.
 
 ### 2026-05-06 22:49 ET - scaffold massive-discord-relay
 - Change: Node relay calling Massive free-tier endpoints, posting to massive-notifs Discord webhook. Cron: 9:30am open status, noon midday, 4:30pm EOD top10 gainers+losers, Fri 5pm upcoming holidays. Env at /home/ubuntu/massive-discord-relay/env needs MASSIVE_API_KEY.
+
+### 2026-05-06 23:00 ET - fix massive-relay eod 403 fallback
+- Change: modeEodMovers now catches 403/NOT_AUTHORIZED and posts a tier-upgrade message instead of crashing. Other modes unaffected.
