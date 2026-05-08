@@ -1851,3 +1851,7 @@ End v4 reconciliation.
 ### 2026-05-08 14:52 ET - kronos-tiered
 - Change: build
 - Details: kronos_forecast_tiered.py supports --tier mini|small|base. mini variant runs AAPL forecast in 17s vs 2-4min small. mini downloaded, base downloading. decision cycles NOT wired yet -- awaiting approval before swap
+
+### 2026-05-08 15:21 ET - discord-orphan-sweep
+- Change: change
+- Details: moved 61 stray channels into the 7 new categories
