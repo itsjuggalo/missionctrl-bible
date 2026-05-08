@@ -1840,3 +1840,6 @@ End v4 reconciliation.
 
 ### 2026-05-07 19:43 ET - optionswatcher client wrapper
 - Change: next strict requires ssr:false in client component; added wrapper
+
+### 2026-05-07 20:21 ET - secret leak prevention installed
+- Change: gitleaks pre-commit hook + aggressive gitignore
