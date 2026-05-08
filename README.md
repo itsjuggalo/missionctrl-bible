@@ -1843,3 +1843,7 @@ End v4 reconciliation.
 
 ### 2026-05-07 20:21 ET - secret leak prevention installed
 - Change: gitleaks pre-commit hook + aggressive gitignore
+
+### 2026-05-08 14:38 ET - icons-final
+- Change: change
+- Details: all 12 discord bots now have themed avatars from game-icons.net
