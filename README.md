@@ -1847,3 +1847,7 @@ End v4 reconciliation.
 ### 2026-05-08 14:38 ET - icons-final
 - Change: change
 - Details: all 12 discord bots now have themed avatars from game-icons.net
+
+### 2026-05-08 14:52 ET - kronos-tiered
+- Change: build
+- Details: kronos_forecast_tiered.py supports --tier mini|small|base. mini variant runs AAPL forecast in 17s vs 2-4min small. mini downloaded, base downloading. decision cycles NOT wired yet -- awaiting approval before swap
