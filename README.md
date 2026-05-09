@@ -1899,3 +1899,7 @@ End v4 reconciliation.
 ### 2026-05-09 13:26 ET - trades rename + metrics pills
 - Change: Tweak renamed to Boba in agents and trades subtitle; ET timestamp removed from top bar; Day P&L pill added showing combined Boba+Jazzy unrealized PnL with winners/losers count
 - Details: Top bar more useful at a glance
+
+### 2026-05-09 14:45 ET - trades subtitle + watcher null safety
+- Change: Tweak hardcoded subtitle in TradesPage replaced with Boba; fmtVal/fmtPct/fmtPrice in OptionsWatcher now handle null/undefined to prevent toFixed crash when changing ticker
+- Details: Both Mike-reported issues fixed
