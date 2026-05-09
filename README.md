@@ -1863,3 +1863,7 @@ End v4 reconciliation.
 ### 2026-05-09 00:57 ET - OptionsPage byTab fix
 - Change: Optional-chained analystData.byTab and .stats access in OptionsPage component
 - Details: Prevents 'Cannot read properties of undefined reading swings' runtime crash on Vercel options page. Pushed commit 573204a05 to vercel branch.
+
+### 2026-05-09 01:24 ET - analyst-signals raw fetch wired
+- Change: Vercel route fetches /raw/analyst-signals-merged from openclaw nginx when local file unavailable
+- Details: Hydrates full byTab/stats with 53 open + 200 closed signals. mission-control-restored untouched.
