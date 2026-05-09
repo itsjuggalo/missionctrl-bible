@@ -1891,3 +1891,7 @@ End v4 reconciliation.
 ### 2026-05-09 11:51 ET - options + filters + widget tightening
 - Change: OptionsWatcher and FlowHistory now swallow unhandled promise rejections so bad ticker input doesnt crash the page; OptionsPage shows yellow FILTERS ACTIVE banner with CLEAR button when filters are non-default; BestOptionsWidget polls every 20s during US market hours (9:30am-4pm ET weekdays) and 60s otherwise so new flow replaces top picks faster
 - Details: Four UX fixes shipped together
+
+### 2026-05-09 12:03 ET - market route Yahoo data
+- Change: Switched stock data source from Alpaca paper data API to Yahoo Finance unofficial endpoint - returns real prices on weekends and works without auth; Alpaca kept as fallback
+- Details: SPY/QQQ/VIX/DXY/10Y will populate after rebuild
