@@ -1895,3 +1895,7 @@ End v4 reconciliation.
 ### 2026-05-09 12:03 ET - market route Yahoo data
 - Change: Switched stock data source from Alpaca paper data API to Yahoo Finance unofficial endpoint - returns real prices on weekends and works without auth; Alpaca kept as fallback
 - Details: SPY/QQQ/VIX/DXY/10Y will populate after rebuild
+
+### 2026-05-09 13:26 ET - trades rename + metrics pills
+- Change: Tweak renamed to Boba in agents and trades subtitle; ET timestamp removed from top bar; Day P&L pill added showing combined Boba+Jazzy unrealized PnL with winners/losers count
+- Details: Top bar more useful at a glance
