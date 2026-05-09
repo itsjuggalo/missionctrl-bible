@@ -1906,3 +1906,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 17:12 ET - rotate wallet password to Mike123
 - Change: Deleted old WALLET_PASSWORD via Vercel API, re-added type:sensitive, pushed empty commit to trigger Vercel rebuild
+
+### 2026-05-09 18:50 ET - kronos model selector
+- Change: Added --model arg to kronos_forecast_v2.py supporting mini/small/base/large variants. Vercel /api/kronos-generate proxies to openclaw with model param. CommandCenter widget has model dropdown persisted to localStorage.
