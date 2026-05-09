@@ -1875,3 +1875,7 @@ End v4 reconciliation.
 ### 2026-05-09 02:16 ET - BEST OPTIONS widget restored
 - Change: Added BestOptionsWidget component to Sidebar fetching options-flow and showing top call and top put by Value
 - Details: Widget was missing from new capytrade-style sidebar - both CALL and PUT now render
+
+### 2026-05-09 10:42 ET - sidebar active link blue
+- Change: Changed sidebar active highlight from #5fff5f green to #5fa3ff blue
+- Details: matches MC logo gradient blue tone
