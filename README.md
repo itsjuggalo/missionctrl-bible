@@ -1867,3 +1867,7 @@ End v4 reconciliation.
 ### 2026-05-09 01:24 ET - analyst-signals raw fetch wired
 - Change: Vercel route fetches /raw/analyst-signals-merged from openclaw nginx when local file unavailable
 - Details: Hydrates full byTab/stats with 53 open + 200 closed signals. mission-control-restored untouched.
+
+### 2026-05-09 02:03 ET - wallets snapshot wired
+- Change: Vercel wallets route fetches /raw/wallets-snapshot from openclaw nginx; cron snapshots every 5 min and filters out go-trader Hyperliquid keeping Personal
+- Details: Coinbase + Hyperliquid (Personal) now show real balances on Vercel. mission-control-restored untouched.
