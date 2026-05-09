@@ -1903,3 +1903,6 @@ End v4 reconciliation.
 ### 2026-05-09 14:45 ET - trades subtitle + watcher null safety
 - Change: Tweak hardcoded subtitle in TradesPage replaced with Boba; fmtVal/fmtPct/fmtPrice in OptionsWatcher now handle null/undefined to prevent toFixed crash when changing ticker
 - Details: Both Mike-reported issues fixed
+
+### 2026-05-09 17:12 ET - rotate wallet password to Mike123
+- Change: Deleted old WALLET_PASSWORD via Vercel API, re-added type:sensitive, pushed empty commit to trigger Vercel rebuild
