@@ -1859,3 +1859,7 @@ End v4 reconciliation.
 ### 2026-05-08 22:31 ET - kronos-prewarm
 - Change: build
 - Details: kronos_mini_prewarm cron added: 4 tickers from rotating top 20 every 5 min during US market hours, mini tier (15s each)
+
+### 2026-05-09 00:57 ET - OptionsPage byTab fix
+- Change: Optional-chained analystData.byTab and .stats access in OptionsPage component
+- Details: Prevents 'Cannot read properties of undefined reading swings' runtime crash on Vercel options page. Pushed commit 573204a05 to vercel branch.
