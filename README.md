@@ -1855,3 +1855,7 @@ End v4 reconciliation.
 ### 2026-05-08 15:21 ET - discord-orphan-sweep
 - Change: change
 - Details: moved 61 stray channels into the 7 new categories
+
+### 2026-05-08 22:31 ET - kronos-prewarm
+- Change: build
+- Details: kronos_mini_prewarm cron added: 4 tickers from rotating top 20 every 5 min during US market hours, mini tier (15s each)
