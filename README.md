@@ -1879,3 +1879,7 @@ End v4 reconciliation.
 ### 2026-05-09 10:42 ET - sidebar active link blue
 - Change: Changed sidebar active highlight from #5fff5f green to #5fa3ff blue
 - Details: matches MC logo gradient blue tone
+
+### 2026-05-09 10:43 ET - sidebar import fix
+- Change: Moved BestOptionsWidget import below lucide-react closing brace - was breaking the multi-line import statement causing silent Vercel build failure
+- Details: Widget will now actually render after Vercel rebuild
