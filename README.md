@@ -1871,3 +1871,7 @@ End v4 reconciliation.
 ### 2026-05-09 02:03 ET - wallets snapshot wired
 - Change: Vercel wallets route fetches /raw/wallets-snapshot from openclaw nginx; cron snapshots every 5 min and filters out go-trader Hyperliquid keeping Personal
 - Details: Coinbase + Hyperliquid (Personal) now show real balances on Vercel. mission-control-restored untouched.
+
+### 2026-05-09 02:16 ET - BEST OPTIONS widget restored
+- Change: Added BestOptionsWidget component to Sidebar fetching options-flow and showing top call and top put by Value
+- Details: Widget was missing from new capytrade-style sidebar - both CALL and PUT now render
