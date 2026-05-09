@@ -1883,3 +1883,7 @@ End v4 reconciliation.
 ### 2026-05-09 10:43 ET - sidebar import fix
 - Change: Moved BestOptionsWidget import below lucide-react closing brace - was breaking the multi-line import statement causing silent Vercel build failure
 - Details: Widget will now actually render after Vercel rebuild
+
+### 2026-05-09 11:32 ET - metrics proxy + MC glow
+- Change: Status and market routes proxy to openclaw when no local creds; MC sidebar logo gets blue glow pulse animation
+- Details: Fixes top metrics bar showing dashes for Boba/Jazzy/SPY/QQQ/etc - now hydrates from openclaw which has the local creds
