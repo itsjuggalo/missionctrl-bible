@@ -2015,3 +2015,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 13:16 ET - MIS-46
 - Change: deadsnakes PPA added; python3.12 installed; iai-mcp installer re-run cleanly; daemon restarted with venv python
+
+### 2026-05-10 13:18 ET - MIS-47
+- Change: iai-mcp daemon FINALLY running — systemd unit fixed to .venv path; doctor results above
