@@ -1958,3 +1958,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 02:27 ET - INTEG-2
 - Change: installed bun; ClawRouter via bun install + pm2 if dist; hyperframes registered as claude plugin via symlink (skipped heavy monorepo build)
+
+### 2026-05-10 02:38 ET - MIS-26
+- Change: candles route gets edge cache (60s s-maxage, 300s SWR) for fast repeat loads
