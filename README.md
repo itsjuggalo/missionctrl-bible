@@ -1919,3 +1919,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 21:29 ET - build kronos-sidecar service
 - Change: Node service on 127.0.0.1:4711 with proper model filter + 15min in-memory cache. Avoids mission-control-restored rebuild. Endpoints: GET /forecast, POST /generate, GET /health. nginx exposes /raw/kronos-forecast and /raw/kronos-generate
+
+### 2026-05-09 21:41 ET - kronos sidecar full ship
+- Change: Sidecar service on PM2 + nginx /raw/kronos-forecast public endpoint + Vercel route uses sidecar with proper model filter. Each model returns its own file or 404.
