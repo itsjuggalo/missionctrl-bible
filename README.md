@@ -1934,3 +1934,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 22:33 ET - delete 1.1G backup zip
 - Change: Removed UpgradedMC42026-backup-20260422-204818.zip - ancient April 22 backup, no longer needed since current code is on 4.23.2026MissionCtrlV2 GitHub repo
+
+### 2026-05-09 22:44 ET - stock detail proxy to openclaw
+- Change: Vercel /api/stock/[ticker] proxies to openclaw which has working Finnhub credentials. Fixes ticker detail page showing 'No data' / blank stats.
