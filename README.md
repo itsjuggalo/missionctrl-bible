@@ -1931,3 +1931,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 22:28 ET - kronos sidecar BTCUSDT mapping force-fixed
 - Change: Earlier ALREADY check was false positive due to leftover sed garbage. Re-rewrote symbol assignment block with proper alias mapping. Verified BTCUSDT now finds BTC_ files.
+
+### 2026-05-09 22:33 ET - delete 1.1G backup zip
+- Change: Removed UpgradedMC42026-backup-20260422-204818.zip - ancient April 22 backup, no longer needed since current code is on 4.23.2026MissionCtrlV2 GitHub repo
