@@ -1946,3 +1946,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 00:19 ET - MIS-26
 - Change: stock route rewritten proxy-first; drawer endpoints proxied to openclaw
+
+### 2026-05-10 00:34 ET - MIS-26
+- Change: drawer chart + related routes get serveftp proxy fallback
