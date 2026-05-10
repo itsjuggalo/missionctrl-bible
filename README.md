@@ -1973,3 +1973,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 02:52 ET - MIS-31
 - Change: sentry NEXTJS-5 (wallets fs) and NEXTJS-6 (kronos symbol) resolved via proxy rewrite + nodejs runtime
+
+### 2026-05-10 02:55 ET - MIS-33
+- Change: telegram-signals req var renamed to request
