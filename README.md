@@ -1913,3 +1913,6 @@ End v4 reconciliation.
 ### 2026-05-09 19:08 ET - fix kronos_forecast_v2 args scope
 - Change: Replaced all args.model references with module-level KRONOS_MODEL var fed by env var. argparse main block sets the env var so --model flag still works. All 4 model variants (mini/small/base/large) now run end-to-end
 - Details: Verified mini model produces TSLA 24h forecast in 8s, posts to Discord, saves JSON
+
+### 2026-05-09 20:35 ET - kronos model filter on openclaw
+- Change: Same findLatestForSymbolWithModel helper added to mission-control-restored route. /api/kronos-generate now passes --model arg through. PM2 restarted. Vercel proxy now correctly filters per chosen model.
