@@ -1916,3 +1916,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 20:35 ET - kronos model filter on openclaw
 - Change: Same findLatestForSymbolWithModel helper added to mission-control-restored route. /api/kronos-generate now passes --model arg through. PM2 restarted. Vercel proxy now correctly filters per chosen model.
+
+### 2026-05-09 21:29 ET - build kronos-sidecar service
+- Change: Node service on 127.0.0.1:4711 with proper model filter + 15min in-memory cache. Avoids mission-control-restored rebuild. Endpoints: GET /forecast, POST /generate, GET /health. nginx exposes /raw/kronos-forecast and /raw/kronos-generate
