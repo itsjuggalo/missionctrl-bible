@@ -2012,3 +2012,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 13:03 ET - MIS-45
 - Change: iai-mcp daemon active via venv python; CLI symlinked from venv to ~/.local/bin
+
+### 2026-05-10 13:16 ET - MIS-46
+- Change: deadsnakes PPA added; python3.12 installed; iai-mcp installer re-run cleanly; daemon restarted with venv python
