@@ -1949,3 +1949,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 00:34 ET - MIS-26
 - Change: drawer chart + related routes get serveftp proxy fallback
+
+### 2026-05-10 00:37 ET - MIS-26
+- Change: stock candles route added as proxy — drawer chart should now render
