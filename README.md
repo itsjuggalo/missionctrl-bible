@@ -1988,3 +1988,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 12:10 ET - MIS-37
 - Change: code-push backup-ref removed; iai-mcp entry discovered; hyperframes bun install attempt
+
+### 2026-05-10 12:12 ET - MIS-38
+- Change: code-push inspected; iai-mcp mcp-wrapper found; hyperframes plugin manifest located
