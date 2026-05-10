@@ -1991,3 +1991,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 12:12 ET - MIS-38
 - Change: code-push inspected; iai-mcp mcp-wrapper found; hyperframes plugin manifest located
+
+### 2026-05-10 12:13 ET - MIS-39
+- Change: iai-mcp via mcp-wrapper attempted; hyperframes plugin path registered for Claude Code
