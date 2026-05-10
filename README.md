@@ -2021,3 +2021,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 13:20 ET - MIS-48
 - Change: iai-mcp crypto key initialized; daemon should now boot fully
+
+### 2026-05-10 13:22 ET - MIS-49
+- Change: iai-mcp doctor --apply run; final daemon state above
