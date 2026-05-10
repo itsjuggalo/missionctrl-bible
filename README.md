@@ -1970,3 +1970,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 02:49 ET - MIS-30
 - Change: drawer chart now shows price labels on Y-axis gridlines (in addition to existing X-axis time labels)
+
+### 2026-05-10 02:52 ET - MIS-31
+- Change: sentry NEXTJS-5 (wallets fs) and NEXTJS-6 (kronos symbol) resolved via proxy rewrite + nodejs runtime
