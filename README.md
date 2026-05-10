@@ -1922,3 +1922,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 21:41 ET - kronos sidecar full ship
 - Change: Sidecar service on PM2 + nginx /raw/kronos-forecast public endpoint + Vercel route uses sidecar with proper model filter. Each model returns its own file or 404.
+
+### 2026-05-09 21:52 ET - kronos sidecar BTCUSDT alias
+- Change: Sidecar now normalizes BTCUSDT/BTCUSD to BTC and ETHUSDT/ETHUSD to ETH before file lookup, matching the script's naming. All ticker × model combos now route correctly through sidecar.
