@@ -1952,3 +1952,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 00:37 ET - MIS-26
 - Change: stock candles route added as proxy — drawer chart should now render
+
+### 2026-05-10 02:24 ET - INTEG-1
+- Change: installed: agentic-design-patterns-docs (symlinked refs), iai-mcp (pip -e), vibe-trading-ai (pypi), AutoHedge (deps only, not running) — Solana-only so deferred
