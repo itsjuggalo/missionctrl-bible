@@ -1961,3 +1961,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 02:38 ET - MIS-26
 - Change: candles route gets edge cache (60s s-maxage, 300s SWR) for fast repeat loads
+
+### 2026-05-10 02:42 ET - MIS-28
+- Change: openclaw candles cache bumped 5x; built market-watch bot posting to new-stuff Discord channel every 30min
