@@ -1982,3 +1982,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 11:35 ET - MIS-35
 - Change: iai-mcp daemon evaluated — kept in /home/ubuntu/integrations/iai-mcp; ready for manual config when Mike picks Claude Code MCP wiring
+
+### 2026-05-10 12:04 ET - MIS-36
+- Change: disk cleanup: cache + bun + npm + .next + node_modules + bak files + pm2 logs flushed
