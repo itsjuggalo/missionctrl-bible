@@ -1943,3 +1943,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 00:10 ET - MIS-26
 - Change: kronos route fully rewritten clean: sidecar primary, fallback file secondary
+
+### 2026-05-10 00:19 ET - MIS-26
+- Change: stock route rewritten proxy-first; drawer endpoints proxied to openclaw
