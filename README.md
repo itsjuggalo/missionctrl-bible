@@ -2003,3 +2003,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 12:44 ET - MIS-42
 - Change: iai-mcp installed via official scripts/install.sh; systemd unit started; Stop hook + settings registered; claude mcp add iai-mcp completed
+
+### 2026-05-10 12:53 ET - MIS-43
+- Change: iai-mcp systemd ExecStart fixed to use venv python; CLI symlinked to ~/.local/bin
