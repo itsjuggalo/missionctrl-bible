@@ -2009,3 +2009,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 12:59 ET - MIS-44
 - Change: iai-mcp prereq python3.12 installed; installer re-run; venv python wired into systemd unit; doctor results above
+
+### 2026-05-10 13:03 ET - MIS-45
+- Change: iai-mcp daemon active via venv python; CLI symlinked from venv to ~/.local/bin
