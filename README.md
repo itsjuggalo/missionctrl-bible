@@ -1967,3 +1967,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 02:45 ET - MIS-29
 - Change: vibe-analyzer bot wired — hourly per-ticker analysis posts to new-stuff Discord with price/trend/PE/target/rating
+
+### 2026-05-10 02:49 ET - MIS-30
+- Change: drawer chart now shows price labels on Y-axis gridlines (in addition to existing X-axis time labels)
