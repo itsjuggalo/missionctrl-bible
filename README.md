@@ -1925,3 +1925,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 21:52 ET - kronos sidecar BTCUSDT alias
 - Change: Sidecar now normalizes BTCUSDT/BTCUSD to BTC and ETHUSDT/ETHUSD to ETH before file lookup, matching the script's naming. All ticker × model combos now route correctly through sidecar.
+
+### 2026-05-09 21:56 ET - kronos sidecar BTCUSDT alias fixed
+- Change: Sidecar maps BTCUSDT/BTCUSD to BTC and ETHUSDT/ETHUSD to ETH so file lookup matches script's naming. All ticker x model combos route correctly.
