@@ -1940,3 +1940,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 00:07 ET - MIS-26
 - Change: kronos route repair (de4175fdc) pushed to vercel branch
+
+### 2026-05-10 00:10 ET - MIS-26
+- Change: kronos route fully rewritten clean: sidecar primary, fallback file secondary
