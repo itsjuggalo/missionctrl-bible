@@ -2024,3 +2024,7 @@ End v4 reconciliation.
 
 ### 2026-05-10 13:22 ET - MIS-49
 - Change: iai-mcp doctor --apply run; final daemon state above
+
+### 2026-05-10 17:52 ET - spacecoast cold-spare hydrated
+- Change: secrets+code+pm2 dump staged on 5.78.153.113
+- Details: 214 secrets mirrored, anthropic key wired, mission-control-restored + scripts + .openclaw subset extracted to /root/, pm2 dump staged at /root/.pm2/dump.pm2 but NOT resurrected (paths still /home/ubuntu — rewrite at failover time), node24+pnpm+pm2+python deps installed, crontab staged at /root/cron-STAMP awaiting review
