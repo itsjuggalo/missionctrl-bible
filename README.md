@@ -1976,3 +1976,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 02:55 ET - MIS-33
 - Change: telegram-signals req var renamed to request
+
+### 2026-05-10 11:34 ET - MIS-34
+- Change: chart-image-bot live (matplotlib grid posts to Discord every 4hr); ClawRouter survey posted; Linear tutorials archived
