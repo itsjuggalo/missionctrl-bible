@@ -1994,3 +1994,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 12:13 ET - MIS-39
 - Change: iai-mcp via mcp-wrapper attempted; hyperframes plugin path registered for Claude Code
+
+### 2026-05-10 12:15 ET - MIS-40
+- Change: iai-mcp wrapper build attempted; pm2 entry created if dist/index.js present
