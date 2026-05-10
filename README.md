@@ -1985,3 +1985,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 12:04 ET - MIS-36
 - Change: disk cleanup: cache + bun + npm + .next + node_modules + bak files + pm2 logs flushed
+
+### 2026-05-10 12:10 ET - MIS-37
+- Change: code-push backup-ref removed; iai-mcp entry discovered; hyperframes bun install attempt
