@@ -1955,3 +1955,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 02:24 ET - INTEG-1
 - Change: installed: agentic-design-patterns-docs (symlinked refs), iai-mcp (pip -e), vibe-trading-ai (pypi), AutoHedge (deps only, not running) — Solana-only so deferred
+
+### 2026-05-10 02:27 ET - INTEG-2
+- Change: installed bun; ClawRouter via bun install + pm2 if dist; hyperframes registered as claude plugin via symlink (skipped heavy monorepo build)
