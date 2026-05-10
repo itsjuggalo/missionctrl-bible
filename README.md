@@ -1997,3 +1997,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 12:15 ET - MIS-40
 - Change: iai-mcp wrapper build attempted; pm2 entry created if dist/index.js present
+
+### 2026-05-10 12:17 ET - MIS-41
+- Change: iai-mcp deferred — entry point needs manual investigation; all other overnight services stable
