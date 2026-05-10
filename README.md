@@ -2000,3 +2000,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 12:17 ET - MIS-41
 - Change: iai-mcp deferred — entry point needs manual investigation; all other overnight services stable
+
+### 2026-05-10 12:44 ET - MIS-42
+- Change: iai-mcp installed via official scripts/install.sh; systemd unit started; Stop hook + settings registered; claude mcp add iai-mcp completed
