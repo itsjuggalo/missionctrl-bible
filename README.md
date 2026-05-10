@@ -1979,3 +1979,6 @@ End v4 reconciliation.
 
 ### 2026-05-10 11:34 ET - MIS-34
 - Change: chart-image-bot live (matplotlib grid posts to Discord every 4hr); ClawRouter survey posted; Linear tutorials archived
+
+### 2026-05-10 11:35 ET - MIS-35
+- Change: iai-mcp daemon evaluated — kept in /home/ubuntu/integrations/iai-mcp; ready for manual config when Mike picks Claude Code MCP wiring
