@@ -1928,3 +1928,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 21:56 ET - kronos sidecar BTCUSDT alias fixed
 - Change: Sidecar maps BTCUSDT/BTCUSD to BTC and ETHUSDT/ETHUSD to ETH so file lookup matches script's naming. All ticker x model combos route correctly.
+
+### 2026-05-09 22:28 ET - kronos sidecar BTCUSDT mapping force-fixed
+- Change: Earlier ALREADY check was false positive due to leftover sed garbage. Re-rewrote symbol assignment block with proper alias mapping. Verified BTCUSDT now finds BTC_ files.
