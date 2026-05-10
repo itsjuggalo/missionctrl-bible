@@ -1937,3 +1937,6 @@ End v4 reconciliation.
 
 ### 2026-05-09 22:44 ET - stock detail proxy to openclaw
 - Change: Vercel /api/stock/[ticker] proxies to openclaw which has working Finnhub credentials. Fixes ticker detail page showing 'No data' / blank stats.
+
+### 2026-05-10 00:07 ET - MIS-26
+- Change: kronos route repair (de4175fdc) pushed to vercel branch
