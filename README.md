@@ -2033,3 +2033,8 @@ End v4 reconciliation.
 - Change: Set autorestart=false on scanner-prepop via 'pm2 restart scanner-prepop --no-autorestart && pm2 save'. PM2 no longer wraps the one-shot as a daemon; existing cron_restart */5 13-20 * * 1-5 schedules it during market hours weekdays. Resolves MIS-13.
 - Details: scanner-prepop is /home/ubuntu/scripts/scanners/pre_pop_py — a one-shot scanner that exits after each run. Default PM2 autorestart=true caused 44k+ restart loop because PM2 treated normal exit as crash. Fix preserves cron schedule. Verified scanner-prepop status=online, autorestart=False, cron='*/5 13-20 * * 1-5'.
 - Linear: MIS-13
+
+### 2026-05-11 00:44 ET - captcha-bot + boba-qa restart loop kill
+- Change: Stopped captcha-bot (8340 restarts) and boba-qa (7065 restarts) and set autorestart=false on both. Both dying with discord.errors.LoginFailure 401 Unauthorized — Discord rejecting tokens at login. Token files exist and are recent so this is server-side bot disablement or rotation needed. Filed MIS-105 (captcha-bot) and MIS-106 (boba-qa) with full diagnosis and rotation steps.
+- Details: Both processes are now stopped with autorestart=false. PM2 dump saved. Will not auto-recover until tokens are regenerated in Discord Developer Portal and pm2 restart with --update-env. captcha-bot reads /home/ubuntu/.openclaw/secrets/discord_verify_token. boba-qa reads discord_boba_qa_token (with fallbacks to discord_boba_token, discord_askgrok_token — all 3 401 today).
+- Linear: MIS-105
