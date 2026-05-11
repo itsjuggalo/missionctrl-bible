@@ -2028,3 +2028,8 @@ End v4 reconciliation.
 ### 2026-05-10 17:52 ET - spacecoast cold-spare hydrated
 - Change: secrets+code+pm2 dump staged on 5.78.153.113
 - Details: 214 secrets mirrored, anthropic key wired, mission-control-restored + scripts + .openclaw subset extracted to /root/, pm2 dump staged at /root/.pm2/dump.pm2 but NOT resurrected (paths still /home/ubuntu — rewrite at failover time), node24+pnpm+pm2+python deps installed, crontab staged at /root/cron-STAMP awaiting review
+
+### 2026-05-11 00:43 ET - scanner-prepop autorestart fix
+- Change: Set autorestart=false on scanner-prepop via 'pm2 restart scanner-prepop --no-autorestart && pm2 save'. PM2 no longer wraps the one-shot as a daemon; existing cron_restart */5 13-20 * * 1-5 schedules it during market hours weekdays. Resolves MIS-13.
+- Details: scanner-prepop is /home/ubuntu/scripts/scanners/pre_pop_py — a one-shot scanner that exits after each run. Default PM2 autorestart=true caused 44k+ restart loop because PM2 treated normal exit as crash. Fix preserves cron schedule. Verified scanner-prepop status=online, autorestart=False, cron='*/5 13-20 * * 1-5'.
+- Linear: MIS-13
