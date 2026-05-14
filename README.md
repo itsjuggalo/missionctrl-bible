@@ -2106,3 +2106,7 @@ End v4 reconciliation.
 ### 2026-05-14 13:58 ET - vercel sidebar restore 10 pages
 - Change: Re-added Tasks Docs Skills Usage Approvals Memory MemoryGraph Projects Sessions Agents to bobacattrades sidebar. New KNOWLEDGE section between AGENTS and ADMIN. Approvals wired to pendingApprovalsCount badge prop. All 10 page components and routes confirmed present on disk before patch - this was sidebar-only, no component or route changes needed.
 - Details: User pivoted from earlier hide-10 request - wants full page coverage on bobacattrades matching openclaw MC dashboard
+
+### 2026-05-14 14:07 ET - verify bobacattrades sidebar pages live
+- Change: Visually confirmed via Chrome MCP at bobacattrades.vercel.app/dashboard - all 10 restored pages present: KNOWLEDGE section new (Memory MemoryGraph Docs Skills), AGENTS extended (Agents), ADMIN extended (Tasks Projects Sessions Approvals Usage). Vercel deployment CTqB15Wks commit 05a9356 is Current/Ready/Production. Verification complete.
+- Details: Mike asked to verify after earlier curl test returned empty grep - that was because Next.js renders sidebar client-side so curl on initial HTML wont show it. Visual check in actual browser is the correct verification path.
