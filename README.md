@@ -2114,3 +2114,7 @@ End v4 reconciliation.
 ### 2026-05-14 20:35 ET - vercel sidebar add Landing
 - Change: Inserted Landing as first OVERVIEW item with Home icon. Promoted Dashboard from Home to LayoutDashboard. Command Center swapped from LayoutDashboard to Briefcase to keep icons distinct. Landing was already in PageName union type and route exists at src/app/landing/ - sidebar-only patch.
 - Details: User noticed Landing was missing from bobacattrades sidebar - icons repeat fine but kept first 3 OVERVIEW icons distinct
+
+### 2026-05-14 20:47 ET - vercel sidebar Landing routing fix
+- Change: Landing click now hard-navigates to /landing instead of falling through AppShellClient switch default to DashboardPage. Combined with staged sidebar patch - Landing icon Zap (lightning bolt), PowerTrader icon Rocket, active background changed from leftover green rgba(95,255,95,0.08) to theme blue rgba(95,163,255,0.12), hover lights up theme blue rgba(95,163,255,0.06) on mouseenter. Root cause - no LandingPage component exists in src/components/pages/, landing route lives standalone at src/app/landing/page.tsx, switch in AppShellClient had no case for Landing.
+- Details: User noticed Landing link loaded wrong page - now bypasses inline page render and hard-navigates to the standalone /landing Next.js route
