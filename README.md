@@ -2142,3 +2142,7 @@ End v4 reconciliation.
 ### 2026-05-15 02:49 ET - telegram jazzy token rotated
 - Change: Old jazzy token returned Unauthorized via getMe. Backed up as telegram_jazzyhazzy_bot_token.bak with timestamp. Wrote new token 8699883048 prefix at telegram_jazzyhazzy_bot_token chmod 600 ubuntu:ubuntu. Verified via getMe. telegram_jazzyhazzy_token symlink still resolves to the same file so any script reading the old name picks up new value. telegram_discord_relay not in PM2 so no restart needed.
 - Details: Pairs with orion symlink-break earlier this session - both agent bots now have working tokens. Next step is bot script creation if these are meant to run as agents, or claudclaw deployment for serveftp.com integration.
+
+### 2026-05-15 02:59 ET - jazzy-bot telegram script created and started
+- Change: Created jazzy_telegram.py at mission-control-restored bots dir as clone of deepseek_telegram.py with sed-swapped API URL to openai endpoint MODEL to gpt-4o-mini and BOT_TOKEN to telegram_jazzyhazzy_bot_token API_KEY to openai.key. Started in PM2 as jazzy-bot. Orion script coming next - Gemini API needs different adapter not a one-liner sed clone.
+- Details: Mike now has 3 working agent bots: deepseek-bot grok-bot jazzy-bot. Orion is the last one and needs a from-scratch Gemini-shaped script.
