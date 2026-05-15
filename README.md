@@ -2122,3 +2122,7 @@ End v4 reconciliation.
 ### 2026-05-14 20:56 ET - vercel sidebar Alerts hover and bak cleanup
 - Change: Bottom Alerts button now has same theme blue hover as the main nav items - was missing onMouseEnter onMouseLeave handlers entirely. Also committed 39 stale .bak file deletions in scripts/ and src/components/pages/ that have been sitting unstaged. Verified zero live refs to any of the 39 files via grep across py/sh/ts/tsx/json/js. All 15 vercel api proxy routes confirmed present - memory-graph skills docs agent-tasks daily-report regime supertrend-params session-logs usage cost-tracking db-status agent-trust agents signals/latest docs/content. 63 total route.ts files under src/app/api. accounts/page.tsx kept - intentional from commit 8829fcb58.
 - Details: Mike approved batch cleanup - if any of the 10 newly-restored pages show empty data on bobacattrades it is now confirmed env-var or openclaw reachability issue not missing api routes
+
+### 2026-05-14 21:03 ET - vercel sidebar hover blue text and Tasks dupe
+- Change: Hover text color changed from white to theme blue 5fa3ff in both main nav button and bottom Alerts button. Removed duplicate Tasks from PageName union type.
+- Details: Two cleanup items shipped
