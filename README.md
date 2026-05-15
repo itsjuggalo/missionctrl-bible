@@ -2126,3 +2126,7 @@ End v4 reconciliation.
 ### 2026-05-14 21:03 ET - vercel sidebar hover blue text and Tasks dupe
 - Change: Hover text color changed from white to theme blue 5fa3ff in both main nav button and bottom Alerts button. Removed duplicate Tasks from PageName union type.
 - Details: Two cleanup items shipped
+
+### 2026-05-15 02:01 ET - telegram tokens rotated deepseek + grok
+- Change: Updated telegram_deepseek_bot_token and telegram_grok_bot_token in openclaw secrets. Old tokens backed up with timestamp suffix. getMe verified both new tokens authenticate. PM2 restarted deepseek-bot and grok-bot and saved process list. Standing rule means tokens cleared from shell env after use.
+- Details: Mike requested rotation via interactive prompt - tokens never appear in clipboard or shell history
