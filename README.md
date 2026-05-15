@@ -2110,3 +2110,7 @@ End v4 reconciliation.
 ### 2026-05-14 14:07 ET - verify bobacattrades sidebar pages live
 - Change: Visually confirmed via Chrome MCP at bobacattrades.vercel.app/dashboard - all 10 restored pages present: KNOWLEDGE section new (Memory MemoryGraph Docs Skills), AGENTS extended (Agents), ADMIN extended (Tasks Projects Sessions Approvals Usage). Vercel deployment CTqB15Wks commit 05a9356 is Current/Ready/Production. Verification complete.
 - Details: Mike asked to verify after earlier curl test returned empty grep - that was because Next.js renders sidebar client-side so curl on initial HTML wont show it. Visual check in actual browser is the correct verification path.
+
+### 2026-05-14 20:35 ET - vercel sidebar add Landing
+- Change: Inserted Landing as first OVERVIEW item with Home icon. Promoted Dashboard from Home to LayoutDashboard. Command Center swapped from LayoutDashboard to Briefcase to keep icons distinct. Landing was already in PageName union type and route exists at src/app/landing/ - sidebar-only patch.
+- Details: User noticed Landing was missing from bobacattrades sidebar - icons repeat fine but kept first 3 OVERVIEW icons distinct
