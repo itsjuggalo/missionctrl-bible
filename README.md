@@ -2130,3 +2130,7 @@ End v4 reconciliation.
 ### 2026-05-15 02:01 ET - telegram tokens rotated deepseek + grok
 - Change: Updated telegram_deepseek_bot_token and telegram_grok_bot_token in openclaw secrets. Old tokens backed up with timestamp suffix. getMe verified both new tokens authenticate. PM2 restarted deepseek-bot and grok-bot and saved process list. Standing rule means tokens cleared from shell env after use.
 - Details: Mike requested rotation via interactive prompt - tokens never appear in clipboard or shell history
+
+### 2026-05-15 02:03 ET - deepseek-bot + grok-bot re-added to PM2
+- Change: Both bots were missing from PM2 process list after token rotation. pm2 restart errored with Process not found. Started both fresh with pm2 start - deepseek_telegram and grok_telegram from mission-control-restored bots dir. Saved PM2 dump. Verified both polling with no stuck webhook. New tokens already in place from prior rotation - getMe shows @Deepseeker_Bot and @Grootk_Bot.
+- Details: Mike now needs to message both bot handles in Telegram to confirm responses
