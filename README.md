@@ -2150,3 +2150,7 @@ End v4 reconciliation.
 ### 2026-05-15 03:07 ET - jazzy-bot identity cleaned of all deepseek refs
 - Change: Removed final 4 deepseek-lowercase references from jazzy_telegram.py - they were in module docstring comment plus 2 error messages reading the wrong secret name in main. All 4 fixed by python str.replace. PM2 restart with --update-env triggered after.
 - Details: Jazzy will now identify as JazzyHazzy in /start canned reply and in error logs
+
+### 2026-05-15 03:12 ET - orion-bot built and started
+- Change: Created orion telegram polling bot in mission-control-restored bots dir - Gemini API backed sibling to deepseek grok jazzy. Reads telegram_orion_bot_token and gemini api key from openclaw secrets. Probed gemini-2.0-flash-exp endpoint first - upgraded model if 200 returned else stayed on gemini-1.5-flash. Per-chat conversation memory mirrors deepseek pattern - dict keyed by chat_id with alternating user/model parts entries cap 40. System prompt scopes Orion to technical analysis and chart patterns. start command resets memory and replies with intro. reset command clears history. usage_logger tags as orion-bot/orion/gemini-model. PM2 started as orion-bot - 4 telegram agents now live alongside deepseek grok jazzy.
+- Details: Mike messages oOrionz_Bot to verify response. Next concrete tasks: break telegram_orion_chat_id symlink that still points at shared boba/team chat id, clarify claudclaw.serveftp.com server reference, and after orion verified pick up the openclaw to spacecoast migration that stalled on SSH auth.
