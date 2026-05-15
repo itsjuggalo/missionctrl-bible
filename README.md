@@ -2134,3 +2134,7 @@ End v4 reconciliation.
 ### 2026-05-15 02:03 ET - deepseek-bot + grok-bot re-added to PM2
 - Change: Both bots were missing from PM2 process list after token rotation. pm2 restart errored with Process not found. Started both fresh with pm2 start - deepseek_telegram and grok_telegram from mission-control-restored bots dir. Saved PM2 dump. Verified both polling with no stuck webhook. New tokens already in place from prior rotation - getMe shows @Deepseeker_Bot and @Grootk_Bot.
 - Details: Mike now needs to message both bot handles in Telegram to confirm responses
+
+### 2026-05-15 02:47 ET - telegram tokens orion broken from symlink jazzy verified
+- Change: Broke orion symlink to telegram-bot-token.txt - was sharing boba/team token. Installed orion-specific token at telegram_orion_bot_token chmod 600 ubuntu:ubuntu. Verified jazzyhazzy_bot_token still authenticates via getMe. Both tokens will be used in claudclaw.serveftp.com for orion and jazzyhazzy agent identities. telegram_discord_relay restart attempted if running.
+- Details: First orion-only telegram identity - was previously sharing boba token via symlink. Token rotation also coordinated for claudclaw deployment.
