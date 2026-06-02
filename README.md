@@ -2172,3 +2172,6 @@ End v4 reconciliation.
 
 ### 2026-06-02 00:20 ET - AIME ticker-recommender wired into Jazzy decision cycle
 - Change: Same AIME integration as Boba: load_aime_recommendations() + get_aime_top_tickers() added to jazzy_decision_cycle.py. Both cycles share the same cache file (~/.openclaw/workspace/directives/aime_recommendations.json, 6h TTL) — whichever cycle runs first fetches fresh scores, the other reads from disk. AIME section injected into multi_agent_context; shortlist candidates flagged with checkmark when ticker in AIME top-10.
+
+### 2026-06-02 00:25 ET - AIME wired into Orion morning flow brief
+- Change: orion_morning_flow_brief.py patched with _get_aime_top_tickers() + _format_aime_brief(). Reads from shared aime_recommendations.json cache (fetches fresh if stale — same 6h TTL). Appended to Telegram body: AIME top-5 ML picks + any overlap with todays top-5 flow tickers + dual-window bullish names. Dry-run confirmed: AIME section rendering correctly in message. No overlap today (flow=NVDA/SPX/MU, AIME=PAAS/SNDK/AU/SQM/ARGX). All three agents (Boba/Jazzy/Orion) now share cache file.
