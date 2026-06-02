@@ -2169,3 +2169,6 @@ End v4 reconciliation.
 
 ### 2026-06-01 23:59 ET - AIME ticker-recommender wired into Boba decision cycle
 - Change: Added load_aime_recommendations() + get_aime_top_tickers() to boba_decision_cycle.py. Runs 1-day and 5-day ML models in parallel threads (30s timeout each), caches result to ~/.openclaw/workspace/directives/aime_recommendations.json (6h TTL — avoids hitting API on every 15-min cycle). If cache fresh, reads from disk; otherwise fetches live. Results injected into multi_agent_context block in Boba prompt as # AIME ML Recommendations section. Shortlist candidates get checkmark flag when ticker appears in AIME top-10. Cache pre-populated with todays scores. Dry-run passed: 1-day model returned PAAS/SNDK/AU/SQM/ARGX/NVMI/OVV/ONC/RGLD/SONY.
+
+### 2026-06-02 00:20 ET - AIME ticker-recommender wired into Jazzy decision cycle
+- Change: Same AIME integration as Boba: load_aime_recommendations() + get_aime_top_tickers() added to jazzy_decision_cycle.py. Both cycles share the same cache file (~/.openclaw/workspace/directives/aime_recommendations.json, 6h TTL) — whichever cycle runs first fetches fresh scores, the other reads from disk. AIME section injected into multi_agent_context; shortlist candidates flagged with checkmark when ticker in AIME top-10.
