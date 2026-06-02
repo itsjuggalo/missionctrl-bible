@@ -2175,3 +2175,6 @@ End v4 reconciliation.
 
 ### 2026-06-02 00:25 ET - AIME wired into Orion morning flow brief
 - Change: orion_morning_flow_brief.py patched with _get_aime_top_tickers() + _format_aime_brief(). Reads from shared aime_recommendations.json cache (fetches fresh if stale — same 6h TTL). Appended to Telegram body: AIME top-5 ML picks + any overlap with todays top-5 flow tickers + dual-window bullish names. Dry-run confirmed: AIME section rendering correctly in message. No overlap today (flow=NVDA/SPX/MU, AIME=PAAS/SNDK/AU/SQM/ARGX). All three agents (Boba/Jazzy/Orion) now share cache file.
+
+### 2026-06-02 00:27 ET - AIME wired into DeepSeek and Grok cycles
+- Change: deepseek_flow_observer.py: _read_aime_cache() added; call_deepseek() gains aime_ctx param; AIME top-10 injected into contrarian prompt as a cross-reference layer. grok_market_brief.py: _read_aime_cache() added; PROMPT made dynamic in main() — AIME context appended before xAI API call with instruction to flag any AIME tickers that also have strong X/social momentum. Both scripts read-only from shared aime_recommendations.json cache — never trigger a fresh AIME fetch. Boba/Jazzy own cache refresh. All 5 agents (Boba/Jazzy/Orion/DeepSeek/Grok) now AIME-aware.
